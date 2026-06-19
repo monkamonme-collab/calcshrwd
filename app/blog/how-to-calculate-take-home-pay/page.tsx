@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Calculate Your Take-Home Pay | CalcShrwd",
+  title: "How to Calculate Your Take-Home Pay",
   description:
     "Learn how federal taxes, state taxes, Social Security, Medicare, and 401(k) contributions affect your paycheck. Use our free paycheck calculator to get an instant estimate.",
 };
