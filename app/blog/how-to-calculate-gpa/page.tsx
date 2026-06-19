@@ -2,179 +2,120 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Calculate GPA: A Complete Guide | CalcShrwd",
-  description:
-    "Learn how to calculate unweighted and weighted GPA on the 4.0 scale, with worked examples using credit hours and grade points.",
+  title: "How to Calculate GPA | Step-by-Step Guide | CalcShrwd",
+  description: "Learn how to calculate your GPA using the 4.0 scale. Covers unweighted and weighted GPA with a full grade table and worked examples.",
 };
 
-export default function GpaArticle() {
+export default function HowToCalculateGPAArticle() {
   return (
-    <main className="max-w-2xl mx-auto px-6 py-10">
+    <article className="max-w-2xl mx-auto px-6 py-10">
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
         <Link href="/blog" className="hover:text-[#00B4A6]">Blog</Link>
         {" / "}
-        <span>How to Calculate GPA</span>
+        <span className="text-slate-600">How to Calculate GPA</span>
       </nav>
 
-      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">
-        How to Calculate GPA: A Complete Guide
+      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-3">
+        How to Calculate GPA: Unweighted and Weighted
       </h1>
-      <p className="text-slate-400 text-sm mb-8">5 min read</p>
+      <p className="text-slate-400 text-sm mb-8">Updated June 2026 - 5 min read</p>
 
-      <p className="text-slate-700 mb-6">
-        GPA (Grade Point Average) is one of the most widely used metrics in
-        academic life, but many students are unsure exactly how it is
-        calculated. This guide walks through the 4.0 scale, unweighted vs.
-        weighted GPA, and a step-by-step worked example.
+      <p className="text-slate-600 mb-6">
+        GPA - Grade Point Average - is a single number that summarizes your academic performance
+        across all your courses. Most US colleges and high schools use either a 4.0 (unweighted)
+        or a 5.0 (weighted) scale. Understanding how GPA is calculated helps you set realistic
+        goals and track your progress.
       </p>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">
-        The 4.0 Grade Scale
-      </h2>
-      <p className="text-slate-700 mb-4">
-        Most U.S. high schools and colleges use a 4.0 scale to convert letter
-        grades into grade points.
-      </p>
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">The Grade Scale (4.0 System)</h2>
       <div className="overflow-x-auto mb-6">
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="bg-[#1E3A5F] text-white">
               <th className="px-4 py-2 text-left">Letter Grade</th>
-              <th className="px-4 py-2 text-left">Percentage Range</th>
-              <th className="px-4 py-2 text-left">Grade Points (4.0)</th>
+              <th className="px-4 py-2 text-left">Percentage</th>
+              <th className="px-4 py-2 text-left">Grade Points</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
-            {[
-              ["A+", "97â100%", "4.0"],
-              ["A",  "93â96%",  "4.0"],
-              ["Aâ", "90â92%", "3.7"],
-              ["B+", "87â89%", "3.3"],
-              ["B",  "83â86%", "3.0"],
-              ["Bâ", "80â82%", "2.7"],
-              ["C+", "77â79%", "2.3"],
-              ["C",  "73â76%", "2.0"],
-              ["Câ", "70â72%", "1.7"],
-              ["D+", "67â69%", "1.3"],
-              ["D",  "63â66%", "1.0"],
-              ["Dâ", "60â62%", "0.7"],
-              ["F",  "Below 60%", "0.0"],
-            ].map(([letter, pct, pts], i) => (
-              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                <td className="px-4 py-2 font-medium">{letter}</td>
-                <td className="px-4 py-2 text-slate-600">{pct}</td>
-                <td className="px-4 py-2 text-slate-600">{pts}</td>
-              </tr>
-            ))}
+          <tbody>
+            <tr className="border-b"><td className="px-4 py-2">A+</td><td className="px-4 py-2">97-100%</td><td className="px-4 py-2">4.0</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">A</td><td className="px-4 py-2">93-96%</td><td className="px-4 py-2">4.0</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">A-</td><td className="px-4 py-2">90-92%</td><td className="px-4 py-2">3.7</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">B+</td><td className="px-4 py-2">87-89%</td><td className="px-4 py-2">3.3</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">B</td><td className="px-4 py-2">83-86%</td><td className="px-4 py-2">3.0</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">B-</td><td className="px-4 py-2">80-82%</td><td className="px-4 py-2">2.7</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">C+</td><td className="px-4 py-2">77-79%</td><td className="px-4 py-2">2.3</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">C</td><td className="px-4 py-2">73-76%</td><td className="px-4 py-2">2.0</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">C-</td><td className="px-4 py-2">70-72%</td><td className="px-4 py-2">1.7</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">D+</td><td className="px-4 py-2">67-69%</td><td className="px-4 py-2">1.3</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">D</td><td className="px-4 py-2">63-66%</td><td className="px-4 py-2">1.0</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">D-</td><td className="px-4 py-2">60-62%</td><td className="px-4 py-2">0.7</td></tr>
+            <tr><td className="px-4 py-2">F</td><td className="px-4 py-2">Below 60%</td><td className="px-4 py-2">0.0</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">
-        Unweighted GPA
-      </h2>
-      <p className="text-slate-700 mb-4">
-        An unweighted GPA treats all courses equally, regardless of difficulty.
-        The formula is:
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Unweighted GPA Formula</h2>
+      <p className="text-slate-600 mb-4">
+        Unweighted GPA treats every course equally, regardless of difficulty. The formula is:
       </p>
-      <div className="bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 mb-4 font-mono text-sm text-slate-700">
-        GPA = Sum of (Grade Points) / Number of Courses
+      <div className="bg-slate-100 rounded p-4 mb-4 font-mono text-sm">
+        GPA = Total Grade Points / Number of Courses
       </div>
-      <p className="text-slate-700 mb-6">
-        For example, if you earn A (4.0), B+ (3.3), Aâ (3.7), and B (3.0)
-        across four courses, your GPA is (4.0 + 3.3 + 3.7 + 3.0) / 4 ={" "}
-        <strong>3.50</strong>.
+      <p className="text-slate-600 mb-6">
+        Example: If you earned A (4.0), B+ (3.3), A- (3.7), C (2.0), and B (3.0) in five classes,
+        your GPA = (4.0 + 3.3 + 3.7 + 2.0 + 3.0) / 5 = 16.0 / 5 = 3.20
       </p>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">
-        Weighted GPA (Credit Hours)
-      </h2>
-      <p className="text-slate-700 mb-4">
-        Colleges typically weight GPA by credit hours so that a 4-credit class
-        has more impact than a 1-credit elective. The formula is:
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Weighted GPA (Credit Hours)</h2>
+      <p className="text-slate-600 mb-4">
+        When courses carry different credit values, multiply each grade by its credits:
       </p>
-      <div className="bg-slate-50 border border-slate-200 rounded-lg px-5 py-4 mb-4 font-mono text-sm text-slate-700">
-        GPA = Sum of (Grade Points x Credit Hours) / Sum of Credit Hours
+      <div className="bg-slate-100 rounded p-4 mb-4 font-mono text-sm">
+        GPA = Sum of (Grade Points x Credits) / Sum of Credits
       </div>
-
-      <h3 className="text-lg font-semibold text-[#1E3A5F] mb-3">
-        Worked Example
-      </h3>
-      <div className="overflow-x-auto mb-4">
+      <div className="overflow-x-auto mb-6">
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="bg-[#1E3A5F] text-white">
               <th className="px-4 py-2 text-left">Course</th>
               <th className="px-4 py-2 text-left">Grade</th>
-              <th className="px-4 py-2 text-left">Points</th>
               <th className="px-4 py-2 text-left">Credits</th>
               <th className="px-4 py-2 text-left">Points x Credits</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
-            {[
-              ["Calculus", "A", "4.0", "4", "16.0"],
-              ["English Comp", "B+", "3.3", "3", "9.9"],
-              ["History", "Aâ", "3.7", "3", "11.1"],
-              ["PE", "A", "4.0", "1", "4.0"],
-            ].map(([course, grade, pts, credits, total], i) => (
-              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                <td className="px-4 py-2">{course}</td>
-                <td className="px-4 py-2 font-medium">{grade}</td>
-                <td className="px-4 py-2">{pts}</td>
-                <td className="px-4 py-2">{credits}</td>
-                <td className="px-4 py-2 font-medium">{total}</td>
-              </tr>
-            ))}
-            <tr className="bg-[#1E3A5F] text-white font-bold">
-              <td className="px-4 py-2" colSpan={3}>Total</td>
-              <td className="px-4 py-2">11</td>
-              <td className="px-4 py-2">41.0</td>
-            </tr>
+          <tbody>
+            <tr className="border-b"><td className="px-4 py-2">Math</td><td className="px-4 py-2">A (4.0)</td><td className="px-4 py-2">4</td><td className="px-4 py-2">16.0</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">English</td><td className="px-4 py-2">B+ (3.3)</td><td className="px-4 py-2">3</td><td className="px-4 py-2">9.9</td></tr>
+            <tr className="border-b"><td className="px-4 py-2">History</td><td className="px-4 py-2">A- (3.7)</td><td className="px-4 py-2">3</td><td className="px-4 py-2">11.1</td></tr>
+            <tr className="border-b bg-slate-50"><td className="px-4 py-2">PE</td><td className="px-4 py-2">A (4.0)</td><td className="px-4 py-2">1</td><td className="px-4 py-2">4.0</td></tr>
+            <tr className="font-semibold border-t-2"><td className="px-4 py-2">Total</td><td className="px-4 py-2"></td><td className="px-4 py-2">11</td><td className="px-4 py-2">41.0</td></tr>
           </tbody>
         </table>
       </div>
-      <p className="text-slate-700 mb-6">
-        GPA = 41.0 / 11 = <strong>3.73</strong>
+      <p className="text-slate-600 mb-6">GPA = 41.0 / 11 = 3.73</p>
+
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">AP and Honors Courses</h2>
+      <p className="text-slate-600 mb-6">
+        For weighted GPA that rewards course difficulty, AP courses add 1.0 and Honors courses add 0.5
+        to the grade point. So an A in AP calculus counts as 5.0 instead of 4.0. Check your school&apos;s
+        policy, as weighting rules vary.
       </p>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">
-        GPA Benchmarks
-      </h2>
-      <p className="text-slate-700 mb-4">
-        Here is how GPA ranges are generally interpreted:
-      </p>
-      <ul className="space-y-2 mb-6 text-slate-700">
-        <li><strong>3.7 â 4.0</strong> â Summa cum laude / Dean&apos;s List range</li>
-        <li><strong>3.5 â 3.69</strong> â Magna cum laude range</li>
-        <li><strong>3.0 â 3.49</strong> â Solid academic standing</li>
-        <li><strong>2.0 â 2.99</strong> â Meets minimum requirements</li>
-        <li><strong>Below 2.0</strong> â Academic probation risk</li>
-      </ul>
-
-      <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">
-        Tips to Raise Your GPA
-      </h2>
-      <ul className="space-y-2 mb-8 text-slate-700">
-        <li>Focus grade-point effort on high-credit courses â they move the needle most.</li>
-        <li>Retake courses where your school allows grade replacement.</li>
-        <li>Use pass/fail options strategically for electives outside your major.</li>
-        <li>Aim for consistent B+ or better rather than mixing A&apos;s and C&apos;s.</li>
-      </ul>
-
-      <div className="bg-[#F0FDFB] border border-[#00B4A6] rounded-xl p-6 text-center">
-        <p className="text-slate-700 mb-3">
-          Want to calculate your GPA instantly?
+      <div className="bg-[#E8F8F7] border border-[#00B4A6] rounded-lg p-5">
+        <h3 className="text-lg font-bold text-[#1E3A5F] mb-2">Calculate Your GPA Instantly</h3>
+        <p className="text-slate-600 mb-3">
+          Add your courses, grades, and credit hours to get your cumulative GPA in seconds.
         </p>
         <Link
           href="/tools/gpa-calculator"
-          className="inline-block bg-[#00B4A6] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#009e91] transition-colors"
+          className="inline-block bg-[#00B4A6] text-white font-semibold px-5 py-2 rounded hover:bg-[#009d90] transition-colors"
         >
-          Try the GPA Calculator
+          Use the GPA Calculator
         </Link>
       </div>
-    </main>
+    </article>
   );
 }
