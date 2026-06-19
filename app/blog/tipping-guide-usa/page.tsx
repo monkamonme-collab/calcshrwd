@@ -2,126 +2,129 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tipping Guide USA: How Much to Tip in Every Situation",
+  title: "Tipping Guide USA: How Much to Tip in Every Situation | CalcShrwd",
   description:
-    "A complete American tipping guide â restaurants, bars, hotels, rideshare, delivery, salons, and more. Know the standard tip percentage for every service.",
+    "Standard tip percentages for restaurants, delivery, rideshare, hotels, salons, and more -- all in one reference.",
 };
 
-export default function TippingGuideArticle() {
+export default function TippingGuideUsaPage() {
+  const tipData = [
+    { category: "Sit-down restaurant", range: "18-20%", notes: "15% for mediocre service; 20-25% for excellent" },
+    { category: "Buffet restaurant", range: "10%", notes: "Staff still refills drinks and clears plates" },
+    { category: "Takeout / counter service", range: "0-10%", notes: "Optional; tip if the order was complex" },
+    { category: "Food delivery", range: "15-20%", notes: "Minimum $3-5 on small orders; tip in cash if possible" },
+    { category: "Bartender", range: "$1-2 per drink", notes: "Or 15-20% of the tab at a sit-down bar" },
+    { category: "Coffee shop", range: "0-15%", notes: "Optional for simple drip coffee; more for complex drinks" },
+    { category: "Rideshare (Uber/Lyft)", range: "10-15%", notes: "Tip in the app; 20% for exceptional drivers" },
+    { category: "Taxi", range: "15-20%", notes: "Round up at minimum; tip more for help with luggage" },
+    { category: "Hotel housekeeping", range: "$3-5/night", notes: "Leave daily; staff may change each day" },
+    { category: "Hotel bellhop / porter", range: "$2-5 per bag", notes: "More for heavy or numerous bags" },
+    { category: "Hotel concierge", range: "$5-20", notes: "For booking hard-to-get reservations or special requests" },
+    { category: "Hair salon", range: "15-20%", notes: "Tip the stylist; $3-5 for the shampoo assistant" },
+    { category: "Nail salon", range: "15-20%", notes: "Cash is preferred so the technician keeps it directly" },
+    { category: "Spa / massage", range: "15-20%", notes: "Skip if gratuity is already included in the bill" },
+    { category: "Tattoo artist", range: "15-20%", notes: "On a large piece, 10% is acceptable" },
+    { category: "Movers", range: "$20-50 per mover", notes: "For a full-day move; provide drinks and lunch too" },
+    { category: "Grocery / furniture delivery", range: "$5-20", notes: "More for large or heavy items" },
+  ];
+
   return (
-    <article className="max-w-2xl mx-auto px-6 py-10">
+    <main className="max-w-3xl mx-auto px-4 py-10">
       <nav className="text-sm text-slate-400 mb-6">
-        <Link href="/" className="hover:text-[#00B4A6]">Home</Link>{" / "}
-        <Link href="/blog" className="hover:text-[#00B4A6]">Blog</Link>{" / "}
-        <span className="text-slate-600">Tipping Guide USA</span>
+        <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
+        {" / "}
+        <Link href="/blog" className="hover:text-[#00B4A6]">Blog</Link>
+        {" / "}
+        <span>Tipping Guide USA</span>
       </nav>
 
-      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-3">
+      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">
         Tipping Guide USA: How Much to Tip in Every Situation
       </h1>
-      <p className="text-slate-400 text-sm mb-8">Updated June 2026 Â· 4 min read</p>
+      <p className="text-slate-400 text-sm mb-8">Updated June 2026 &middot; 4 min read</p>
 
-      <p className="text-slate-600 mb-6">
-        Tipping in the United States is a de facto part of the service economy. Many service workers
-        earn a reduced hourly wage with the expectation that tips make up the difference. Knowing the
-        standard tip for each situation helps you show appreciation appropriately â and avoid awkward
-        moments at the payment screen.
+      <p className="text-slate-700 mb-6">
+        Tipping in the U.S. is expected in many service industries, but the right amount
+        varies by context. This guide covers standard tip percentages and amounts for
+        every common situation so you never have to guess.
       </p>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">Quick Reference: Standard Tip Percentages</h2>
+      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-4">
+        Quick Reference: Tip Amounts by Service
+      </h2>
       <div className="overflow-x-auto mb-8">
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="bg-[#1E3A5F] text-white">
-              <th className="px-4 py-2 text-left rounded-tl-lg">Service</th>
-              <th className="px-4 py-2 text-left">Standard</th>
-              <th className="px-4 py-2 text-left rounded-tr-lg">Exceptional</th>
+              <th className="px-4 py-2 text-left">Service</th>
+              <th className="px-4 py-2 text-left">Typical Tip</th>
+              <th className="px-4 py-2 text-left">Notes</th>
             </tr>
           </thead>
           <tbody>
-            {[
-              ["Sit-down restaurant (server)", "18â20%", "25%+"],
-              ["Bar (drinks)", "15â20% or $1â2/drink", "20%+"],
-              ["Buffet or counter service", "10%", "15%"],
-              ["Coffee shop / cafÃ©", "10â15%", "20%"],
-              ["Food delivery", "15â20%", "20%+"],
-              ["Rideshare (Uber, Lyft)", "10â15%", "20%"],
-              ["Taxi", "15â20%", "20%+"],
-              ["Hotel bellhop (per bag)", "$1â2/bag", "$3â5/bag"],
-              ["Hotel housekeeping (per night)", "$2â5/night", "$5â10/night"],
-              ["Hair salon / barber", "15â20%", "25%"],
-              ["Nail salon", "15â20%", "20%+"],
-              ["Massage therapist", "15â20%", "20%+"],
-              ["Moving company", "5â10% of total bill", "15%"],
-              ["Pizza delivery", "$3â5 flat or 15%", "20%"],
-            ].map(([service, standard, exceptional], i) => (
-              <tr key={service} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                <td className="px-4 py-2 text-slate-700">{service}</td>
-                <td className="px-4 py-2 text-slate-600">{standard}</td>
-                <td className="px-4 py-2 text-[#00B4A6] font-medium">{exceptional}</td>
+            {tipData.map(({ category, range, notes }, i) => (
+              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
+                <td className="px-4 py-2 border border-slate-200 font-medium">{category}</td>
+                <td className="px-4 py-2 border border-slate-200 whitespace-nowrap">{range}</td>
+                <td className="px-4 py-2 border border-slate-200 text-slate-500">{notes}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">Restaurants: The Full Picture</h2>
-      <p className="text-slate-600 mb-4">
-        The standard tip at a full-service restaurant is <strong>18â20% of the pre-tax bill</strong>.
-        Calculating on the pre-tax total is the traditional approach, though many people now tip on
-        the full amount since the difference is small.
-      </p>
-      <p className="text-slate-600 mb-6">
-        Tips are typically split in many restaurants. The server may share with busboys, food runners,
-        and hosts â so a 20% tip may not all go to your waiter. This is a reason many diners tip on
-        the higher end.
+      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">Why Tipping Exists</h2>
+      <p className="text-slate-700 mb-6">
+        The U.S. minimum wage for tipped workers is as low as $2.13 per hour federally
+        (though many states are higher). Tips make up the bulk of income for servers,
+        bartenders, and many other service workers. When you tip well, you are directly
+        supplementing take-home pay that employers are not required to provide.
       </p>
 
-      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">Delivery Apps: Are You Tipping Enough?</h2>
-      <p className="text-slate-600 mb-6">
-        Food delivery apps typically suggest a dollar amount rather than a percentage â often $2â3 as the
-        default. On a $50 order, that is just 4â6%. Most delivery workers prefer at least 15â20% or a
-        $5 minimum. They typically use their own vehicle and pay for gas, so the base pay from the app
-        alone is often very low.
+      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">
+        How to Calculate a Tip Quickly
+      </h2>
+      <p className="text-slate-700 mb-4">
+        Two easy mental-math tricks:
       </p>
-
-      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">When You Do Not Have to Tip</h2>
-      <p className="text-slate-600 mb-4">
-        Tipping is genuinely optional (though expected) in the following situations:
-      </p>
-      <ul className="list-disc list-inside text-slate-600 mb-6 space-y-1">
-        <li>Counter or fast-food service where you order and pick up your own food</li>
-        <li>Self-checkout at a grocery store</li>
-        <li>Buying a takeout order you carry out yourself (though 10% is appreciated)</li>
-        <li>Professional services like doctors, lawyers, or accountants</li>
+      <ul className="list-disc pl-6 space-y-2 text-slate-700 mb-6">
+        <li>
+          <strong>20% tip:</strong> Move the decimal one place left to get 10%, then
+          double it. A $48 bill: 10% = $4.80, doubled = <strong>$9.60</strong>.
+        </li>
+        <li>
+          <strong>15% tip:</strong> Find 10% (move the decimal), then add half of that
+          for the remaining 5%. A $48 bill: $4.80 + $2.40 = <strong>$7.20</strong>.
+        </li>
       </ul>
-
-      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">How to Calculate a Tip Quickly</h2>
-      <p className="text-slate-600 mb-4">
-        A reliable mental-math shortcut: move the decimal one place left to get 10%, then adjust.
+      <p className="text-slate-700 mb-6">
+        For splitting among multiple people, divide the total bill (including tip) by
+        the number of diners. If six people share a $180 bill with a 20% tip,
+        the total is $216 and each person owes $36.
       </p>
-      <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 mb-8 text-sm text-slate-700">
-        <p className="font-semibold mb-2">Bill: $47.50</p>
-        <div className="space-y-1">
-          <div className="flex justify-between"><span>10% of $47.50</span><span>= $4.75</span></div>
-          <div className="flex justify-between"><span>15% (10% + half of 10%)</span><span>= $7.13</span></div>
-          <div className="flex justify-between"><span>20% (10% Ã 2)</span><span>= $9.50</span></div>
-          <div className="flex justify-between font-bold border-t border-slate-200 pt-2 mt-2">
-            <span>Total at 20%</span><span className="text-[#00B4A6]">$57.00</span>
-          </div>
-        </div>
-      </div>
 
-      <div className="bg-[#1E3A5F] text-white rounded-xl p-6 text-center">
-        <p className="text-lg font-semibold mb-2">Calculate Your Tip Instantly</p>
+      <h2 className="text-xl font-bold text-[#1E3A5F] mt-8 mb-3">When Not to Tip</h2>
+      <p className="text-slate-700 mb-6">
+        It is appropriate to skip the tip (or reduce it) when gratuity is already
+        included in the bill -- look for &quot;service charge&quot; or &quot;gratuity included&quot; in the
+        total. In self-serve situations where no service was provided, tipping is truly
+        optional. You are never obligated to tip for rude or negligent service, though
+        speaking to a manager is often more effective.
+      </p>
+
+      <div className="mt-10 bg-[#1E3A5F] text-white rounded-xl p-6 text-center">
+        <h3 className="text-lg font-bold mb-2">Calculate Your Tip Instantly</h3>
         <p className="text-slate-300 text-sm mb-4">
-          Enter your bill, pick a percentage, and optionally split the total â done in seconds.
+          Enter your bill, pick a percentage, and optionally split the total -- done
+          in seconds.
         </p>
-        <Link href="/tools/tip-calculator"
-          className="inline-block bg-[#00B4A6] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#009d91] transition-colors">
-          Use the Tip Calculator â
+        <Link
+          href="/tools/tip-calculator"
+          className="inline-block bg-[#00B4A6] text-white font-semibold px-6 py-2 rounded-lg hover:bg-[#009e91] transition-colors"
+        >
+          Use the Tip Calculator &#8594;
         </Link>
       </div>
-    </article>
+    </main>
   );
 }
