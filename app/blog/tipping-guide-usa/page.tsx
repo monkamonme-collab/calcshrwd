@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tipping Guide USA: How Much to Tip in Every Situation | CalcShrwd",
+  title: "Tipping Guide USA: How Much to Tip in Every Situation",
   description:
     "A complete American tipping guide â restaurants, bars, hotels, rideshare, delivery, salons, and more. Know the standard tip percentage for every service.",
 };
