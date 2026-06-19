@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "CalcShrwd \u2013 Free Online Calculators for Everyday Life",
+  title: "CalcShrwd – Free Online Calculators for Everyday Life",
   description:
-    "Smart, free calculators for Americans \u2014 tip, paycheck, GPA, BMI, loan, percentage, and more. Get instant, accurate results.",
+    "Smart, free calculators for Americans — tip, paycheck, GPA, BMI, loan, percentage, and more. Get instant, accurate results.",
 };
 
 const tools = [
@@ -30,7 +30,7 @@ export default function HomePage() {
             Free, accurate online calculators built for everyday American needs. No sign-up. No ads bloating the page. Just answers.
           </p>
           <Link href="/tools" className="inline-block bg-[#00B4A6] text-white font-semibold px-8 py-3 rounded-lg hover:bg-[#009d91] transition-colors">
-            Browse All Tools \u2192
+            Browse All Tools →
           </Link>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function HomePage() {
       </section>
       <section className="bg-white border-y border-slate-100 py-8 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-slate-500 text-sm">Trusted by Americans for quick, accurate calculations \u2014 from splitting the dinner bill to planning your next loan.</p>
+          <p className="text-slate-500 text-sm">Trusted by Americans for quick, accurate calculations — from splitting the dinner bill to planning your next loan.</p>
         </div>
       </section>
     </>
