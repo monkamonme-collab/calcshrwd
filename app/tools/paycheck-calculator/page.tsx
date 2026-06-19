@@ -199,7 +199,7 @@ export default function PaycheckCalculator() {
         <Link href="/blog/how-to-read-your-paycheck"
           className="block bg-white border border-slate-100 rounded-lg p-4 hover:border-[#00B4A6] transition-colors">
           <p className="font-medium text-slate-700">How to Read Your Paycheck & Pay Stub</p>
-          <p className="text-sm text-slate-400 mt-1">Understand every line item on your paycheck â gross pay, deductions, and net pay explained.</p>
+          <p className="text-sm text-slate-400 mt-1">Understand every line item on your paycheck - gross pay, deductions, and net pay explained.</p>
         </Link>
       </div>
     </div>
