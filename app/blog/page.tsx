@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Practical guides on pay, taxes, GPA, loans, BMI, and tipping â written to help you understand the numbers that affect your everyday life.",
+    "Practical guides on pay, taxes, GPA, loans, BMI, and tipping — written to help you understand the numbers that affect your everyday life.",
 };
 
 const articles = [
@@ -12,7 +12,7 @@ const articles = [
     slug: "how-to-calculate-take-home-pay",
     title: "How to Calculate Your Take-Home Pay",
     description:
-      "Federal taxes, state taxes, FICA, and 401(k) â understand every deduction on your pay stub and estimate your net paycheck.",
+      "Federal taxes, state taxes, FICA, and 401(k) — understand every deduction on your pay stub and estimate your net paycheck.",
     readTime: "5 min read",
     tool: { label: "Paycheck Calculator", href: "/tools/paycheck-calculator" },
   },
@@ -44,9 +44,25 @@ const articles = [
     slug: "tipping-guide-usa",
     title: "Tipping Guide USA: How Much to Tip in Every Situation",
     description:
-      "Standard tip percentages for restaurants, delivery, rideshare, hotels, salons, and more â all in one reference.",
+      "Standard tip percentages for restaurants, delivery, rideshare, hotels, salons, and more — all in one reference.",
     readTime: "4 min read",
     tool: { label: "Tip Calculator", href: "/tools/tip-calculator" },
+  },
+  {
+    slug: "how-to-calculate-grade",
+    title: "How to Calculate Your Grade",
+    description:
+      "Points-based, weighted categories, and simple average — three methods explained with worked examples, plus how to figure out what you need on the final.",
+    readTime: "5 min read",
+    tool: { label: "Grade Calculator", href: "/tools/grade-calculator" },
+  },
+  {
+    slug: "how-to-calculate-percentage",
+    title: "How to Calculate a Percentage",
+    description:
+      "The three core percentage formulas — percent of a number, percent change, and what percent one number is of another — with a quick-reference table and real-world tips.",
+    readTime: "4 min read",
+    tool: { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
   },
 ];
 
@@ -76,7 +92,7 @@ export default function BlogPage() {
                 href={`/blog/${article.slug}`}
                 className="text-sm font-medium text-[#00B4A6] hover:underline"
               >
-                Read article â
+                Read article →
               </Link>
               <Link
                 href={article.tool.href}
