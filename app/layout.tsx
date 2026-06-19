@@ -33,7 +33,7 @@ export default function RootLayout({
         />
         <Script id="adcash-autotag" strategy="afterInteractive">{`
           if (typeof aclib !== 'undefined') {
-            aclib.runAutoTag({ zoneId: 'CALCSHRWD_ZONE' });
+            aclib.runAutoTag({ zoneId: 'wdtixytpvy' });
           }
         `}</Script>
       </head>
