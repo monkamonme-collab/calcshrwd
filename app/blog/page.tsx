@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog | CalcShrwd",
+  title: "Blog",
   description:
     "Practical guides on pay, taxes, GPA, loans, BMI, and tipping â written to help you understand the numbers that affect your everyday life.",
 };
