@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "What Is BMI? Understanding Your Body Mass Index | CalcShrwd",
+  title: "What Is BMI? Understanding Your Body Mass Index",
   description:
     "BMI stands for Body Mass Index. Learn what the number means, how it is calculated, and why it is only one piece of the health picture. Calculate yours free.",
 };
