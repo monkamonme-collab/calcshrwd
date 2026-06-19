@@ -3,54 +3,77 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About | CalcShrwd",
-  description: "CalcShrwd provides free, accurate online calculators for everyday American needs. No sign-up, no ads bloating the page.",
+  description:
+    "CalcShrwd builds free, fast calculators and practical guides for everyday financial and academic decisions.",
 };
 
 export default function AboutPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-6">About CalcShrwd</h1>
+      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-6">About CalcShrwd</h1>
 
-      <p className="mb-4">
-        CalcShrwd is a free collection of online calculators built for everyday American needs.
-        Whether you need to figure out your take-home pay, calculate a tip, check your GPA, or
-        understand a loan, we have a simple tool that gives you the answer in seconds.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">Our Mission</h2>
+        <p className="text-slate-700 mb-4">
+          CalcShrwd exists to make everyday math effortless. Whether you are splitting
+          a restaurant bill, estimating your paycheck, planning a loan, or checking
+          your GPA, you deserve a tool that gives you an accurate answer instantly --
+          without dark patterns or paywalls.
+        </p>
+        <p className="text-slate-700">
+          We build free, fast, privacy-respecting tools supported by non-intrusive
+          display advertising. No login required. No data stored.
+        </p>
+      </section>
 
-      <p className="mb-4">
-        We built CalcShrwd because most calculator sites are slow, cluttered with ads, and require
-        you to scroll past irrelevant content just to get a number. We wanted something fast,
-        clean, and accurate.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">Our Tools</h2>
+        <ul className="space-y-2 text-slate-700">
+          {[
+            { label: "Tip Calculator", href: "/tools/tip-calculator" },
+            { label: "Paycheck Calculator", href: "/tools/paycheck-calculator" },
+            { label: "GPA Calculator", href: "/tools/gpa-calculator" },
+            { label: "BMI Calculator", href: "/tools/bmi-calculator" },
+            { label: "Loan Calculator", href: "/tools/loan-calculator" },
+            { label: "Grade Calculator", href: "/tools/grade-calculator" },
+            { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
+            { label: "Word Counter", href: "/tools/word-counter" },
+          ].map(({ label, href }) => (
+            <li key={href}>
+              <Link href={href} className="text-[#00B4A6] hover:underline font-medium">
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Our Tools</h2>
-      <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
-        <li><Link href="/tools/tip-calculator" className="text-blue-600 underline">Tip Calculator</Link> - Calculate the right tip for any bill</li>
-        <li><Link href="/tools/paycheck-calculator" className="text-blue-600 underline">Paycheck Calculator</Link> - Estimate your take-home pay after taxes</li>
-        <li><Link href="/tools/gpa-calculator" className="text-blue-600 underline">GPA Calculator</Link> - Calculate your GPA on the 4.0 scale</li>
-        <li><Link href="/tools/bmi-calculator" className="text-blue-600 underline">BMI Calculator</Link> - Calculate your Body Mass Index</li>
-        <li><Link href="/tools/loan-calculator" className="text-blue-600 underline">Loan Calculator</Link> - Estimate monthly payments and total interest</li>
-        <li><Link href="/tools/grade-calculator" className="text-blue-600 underline">Grade Calculator</Link> - Find your final grade or needed exam score</li>
-        <li><Link href="/tools/percentage-calculator" className="text-blue-600 underline">Percentage Calculator</Link> - Quick percentage math</li>
-        <li><Link href="/tools/word-counter" className="text-blue-600 underline">Word Counter</Link> - Count words, characters, and reading time</li>
-      </ul>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">Our Commitment</h2>
+        <p className="text-slate-700 mb-4">
+          Every calculator on CalcShrwd is built and reviewed for accuracy. Our blog
+          articles are written to explain the math behind the tools. When we find an
+          error or outdated information, we fix it.
+        </p>
+        <p className="text-slate-700">
+          We are a small independent project. Feedback from users -- bug reports,
+          suggestions, or corrections -- is genuinely appreciated and read.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Our Commitment</h2>
-      <p className="mb-4">
-        All of our calculators are free to use with no account required. Results are computed
-        entirely in your browser - we do not store your inputs or share them with anyone.
-      </p>
-      <p className="mb-4">
-        We strive to keep our tools accurate and up to date. If you notice a calculation error
-        or have a suggestion for a new tool, we welcome your feedback.
-      </p>
-
-      <p className="mt-8 text-sm text-gray-500">
-        Questions? Reach us at{" "}
-        <a href="mailto:hello@calcshrwd.com" className="text-blue-600 underline">
-          hello@calcshrwd.com
-        </a>
-      </p>
+      <section>
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">Contact</h2>
+        <p className="text-slate-700">
+          Questions or feedback? Reach us at{" "}
+          <a
+            href="mailto:monkamonme@gmail.com"
+            className="text-[#00B4A6] hover:underline"
+          >
+            monkamonme@gmail.com
+          </a>
+          .
+        </p>
+      </section>
     </main>
   );
 }
