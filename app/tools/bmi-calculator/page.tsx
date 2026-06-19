@@ -39,9 +39,9 @@ export default function BMICalculator() {
 
   const ranges = [
     { range: "< 18.5", label: "Underweight", color: "bg-blue-100 text-blue-700" },
-    { range: "18.5 â 24.9", label: "Normal", color: "bg-emerald-100 text-emerald-700" },
-    { range: "25 â 29.9", label: "Overweight", color: "bg-amber-100 text-amber-700" },
-    { range: "â¥ 30", label: "Obese", color: "bg-red-100 text-red-700" },
+    { range: "18.5 - 24.9", label: "Normal", color: "bg-emerald-100 text-emerald-700" },
+    { range: "25 - 29.9", label: "Overweight", color: "bg-amber-100 text-amber-700" },
+    { range: ">= 30", label: "Obese", color: "bg-red-100 text-red-700" },
   ];
 
   return (
@@ -113,7 +113,7 @@ export default function BMICalculator() {
         <div className="grid grid-cols-2 gap-2 pt-2">
           {ranges.map((r) => (
             <div key={r.label} className={`rounded-lg px-3 py-2 text-sm ${r.color}`}>
-              <span className="font-semibold">{r.range}</span> â {r.label}
+              <span className="font-semibold">{r.range}</span> - {r.label}
             </div>
           ))}
         </div>
