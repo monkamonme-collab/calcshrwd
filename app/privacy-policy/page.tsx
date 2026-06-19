@@ -2,77 +2,82 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | CalcShrwd",
-  description: "CalcShrwd privacy policy. Learn how we handle your data when you use our free online calculators.",
+  description: "Privacy policy for CalcShrwd.com.",
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-      <p className="text-gray-500 text-sm mb-8">Last updated: June 2025</p>
+      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Privacy Policy</h1>
+      <p className="text-slate-400 text-sm mb-8">Last updated: June 2025</p>
 
-      <p className="mb-6">
-        CalcShrwd ("we", "us", or "our") operates calcshrwd.com. This page describes what
-        information we collect when you use our site and how we use it.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">1. Information We Collect</h2>
+        <p className="text-slate-700 mb-4">
+          <strong>Calculator inputs.</strong> All calculations run entirely in your
+          browser. We do not transmit, store, or log any values you enter into our
+          calculators.
+        </p>
+        <p className="text-slate-700">
+          <strong>Usage data.</strong> We use Google Analytics to collect anonymous
+          information about how visitors interact with the site. This data is
+          aggregated and cannot be used to identify you personally.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Information We Collect</h2>
-      <p className="mb-4">
-        <strong>Calculator inputs:</strong> All calculations on CalcShrwd run entirely in your
-        browser. We do not transmit, store, or log the values you enter into any calculator.
-      </p>
-      <p className="mb-4">
-        <strong>Usage data:</strong> Like most websites, we collect standard server log information
-        such as your IP address, browser type, referring URL, and pages visited. This data is used
-        in aggregate to understand how visitors use the site and to improve our tools.
-      </p>
-      <p className="mb-4">
-        <strong>Cookies:</strong> We use cookies to serve advertisements through third-party ad
-        networks. These cookies may collect information about your browsing activity across websites
-        to show you relevant ads. You can opt out of interest-based advertising through your browser
-        settings or through the ad network opt-out mechanisms.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">2. Cookies</h2>
+        <p className="text-slate-700">
+          CalcShrwd uses cookies for analytics (Google Analytics) and advertising
+          (our ad network). You can disable cookies in your browser settings at any
+          time without affecting calculator functionality.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Third-Party Advertising</h2>
-      <p className="mb-4">
-        We display advertisements served by third-party networks. These networks may use cookies
-        and tracking technologies to deliver ads based on your interests. We do not control the
-        data practices of these third parties. Please review their privacy policies for more
-        information.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">3. Advertising</h2>
+        <p className="text-slate-700">
+          CalcShrwd displays ads to support free access to all tools. Our ad partners
+          may use cookies to serve ads based on your prior visits to this and other
+          websites. You can opt out of personalized advertising through your ad
+          network&apos;s opt-out page.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Analytics</h2>
-      <p className="mb-4">
-        We may use analytics services to understand site traffic and usage patterns. These services
-        collect anonymized data about how visitors interact with our site.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">4. Third-Party Services</h2>
+        <p className="text-slate-700">
+          We use Google Analytics and AdCash. Each operates under its own privacy
+          policy. We do not sell your personal information to any third party.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Data Sharing</h2>
-      <p className="mb-4">
-        We do not sell, trade, or otherwise transfer your personally identifiable information to
-        third parties. We may share aggregate, anonymized data for analytics purposes.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">5. Children</h2>
+        <p className="text-slate-700">
+          CalcShrwd is not directed at children under 13 and we do not knowingly
+          collect personal information from children.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Children's Privacy</h2>
-      <p className="mb-4">
-        CalcShrwd is not directed to children under 13. We do not knowingly collect personal
-        information from children under 13.
-      </p>
+      <section className="mb-8">
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">6. Changes to This Policy</h2>
+        <p className="text-slate-700">
+          We may update this Privacy Policy from time to time. Changes will be posted
+          on this page with an updated &quot;Last updated&quot; date.
+        </p>
+      </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Changes to This Policy</h2>
-      <p className="mb-4">
-        We may update this privacy policy from time to time. We will post changes on this page
-        with an updated date.
-      </p>
-
-      <h2 className="text-2xl font-semibold mt-8 mb-4">Contact</h2>
-      <p className="mb-4">
-        If you have questions about this privacy policy, contact us at{" "}
-        <a href="mailto:hello@calcshrwd.com" className="text-blue-600 underline">
-          hello@calcshrwd.com
-        </a>
-        .
-      </p>
+      <section>
+        <h2 className="text-xl font-bold text-[#1E3A5F] mb-3">7. Contact</h2>
+        <p className="text-slate-700">
+          Questions about this policy? Email us at{" "}
+          <a href="mailto:monkamonme@gmail.com" className="text-[#00B4A6] hover:underline">
+            monkamonme@gmail.com
+          </a>
+          .
+        </p>
+      </section>
     </main>
   );
 }
