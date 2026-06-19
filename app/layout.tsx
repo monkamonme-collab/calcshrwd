@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
+        <meta charSet="utf-8" />
         <Script
           id="aclib"
           src="//acscdn.com/script/aclib.js"
