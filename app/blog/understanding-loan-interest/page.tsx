@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Understanding Loan Interest: How It Really Works | CalcShrwd",
+  title: "Understanding Loan Interest: How It Really Works",
   description:
     "Learn the difference between simple and compound interest, how amortization works, and how to calculate how much interest you will actually pay over the life of a loan.",
 };
