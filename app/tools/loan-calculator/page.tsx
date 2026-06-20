@@ -41,7 +41,7 @@ export default function LoanCalculator() {
 
       <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Loan Calculator</h1>
       <p className="text-slate-500 mb-8">
-        Estimate your monthly payment and total interest for any loan â auto, mortgage, personal, or student.
+        Estimate your monthly payment and total interest for any loan — auto, mortgage, personal, or student.
       </p>
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
