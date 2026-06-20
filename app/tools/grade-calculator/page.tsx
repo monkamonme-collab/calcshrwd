@@ -78,14 +78,14 @@ export default function GradeCalculator() {
                 placeholder={`Item ${i + 1}`}
                 className="col-span-4 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
               <input type="number" value={r.score} onChange={(e) => update(i, "score", e.target.value)}
-                placeholder="â"
+                placeholder="e.g. 85"
                 className="col-span-2 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
               <input type="number" value={r.total} onChange={(e) => update(i, "total", e.target.value)}
                 className="col-span-2 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
               <input type="number" value={r.weight} onChange={(e) => update(i, "weight", e.target.value)}
                 placeholder="e.g. 20"
                 className="col-span-3 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-              <button onClick={() => removeRow(i)} className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">Ã</button>
+              <button onClick={() => removeRow(i)} className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">×</button>
             </div>
           ))}
         </div>
