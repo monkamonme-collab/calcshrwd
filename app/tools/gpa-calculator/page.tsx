@@ -13,7 +13,7 @@ const GRADE_POINTS: Record<string, number> = {
   "F": 0.0,
 };
 
-export default function GPACalculator() {
+export default function GPACalculator() {h
   const [rows, setRows] = useState<Grade[]>([
     { course: "", credits: "3", grade: "A" },
     { course: "", credits: "3", grade: "B+" },
@@ -72,7 +72,7 @@ export default function GPACalculator() {
                 {Object.keys(GRADE_POINTS).map((g) => <option key={g} value={g}>{g}</option>)}
               </select>
               <button onClick={() => removeRow(i)}
-                className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">Ã</button>
+                className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">×</button>
             </div>
           ))}
         </div>
