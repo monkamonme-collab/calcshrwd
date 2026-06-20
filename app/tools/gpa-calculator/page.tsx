@@ -13,7 +13,7 @@ const GRADE_POINTS: Record<string, number> = {
   "F": 0.0,
 };
 
-export default function GPACalculator() {h
+export default function GPACalculator() {
   const [rows, setRows] = useState<Grade[]>([
     { course: "", credits: "3", grade: "A" },
     { course: "", credits: "3", grade: "B+" },
