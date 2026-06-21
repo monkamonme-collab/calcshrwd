@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Calculate Your Grade | CalcShrwd",
+    title: "How to Calculate Your Grade",
   description: "Learn how to calculate your final grade using weighted averages, points-based systems, and category weights. Step-by-step examples included.",
 };
 
