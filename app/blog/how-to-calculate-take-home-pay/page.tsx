@@ -13,7 +13,7 @@ export default function HowToCalculateTakeHomePayArticle() {
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
         <Link href="/blog" className="hover:text-[#00B4A6]">Blog</Link>
-        {" / "}h
+        {" / "}
         <span className="text-slate-600">How to Calculate Take-Home Pay</span>
       </nav>
 
