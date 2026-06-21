@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Understanding Loan Interest: Simple vs Compound | CalcShrwd",
+  title: "Understanding Loan Interest: Simple vs Compound",
   description: "Learn the difference between simple and compound interest, how amortization works, and strategies to pay off loans faster.",
 };
 
