@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How to Calculate Percentages | CalcShrwd",
+    title: "How to Calculate Percentages",
   description: "Learn how to calculate percentages quickly and easily. Covers percentage of a number, percentage change, and what percent one number is of another.",
 };
 
