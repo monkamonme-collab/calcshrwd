@@ -20,5 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: base + "/blog/what-is-bmi", lastModified: now, changeFrequency: "monthly", priority: 0.6 },
       { url: base + "/blog/how-to-calculate-grade", lastModified: now, changeFrequency: "monthly", priority: 0.6 },
       { url: base + "/blog/how-to-calculate-percentage", lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+        { url: base + "/blog/word-count-guide", lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+        { url: base + "/tools", lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+        { url: base + "/about", lastModified: now, changeFrequency: "yearly", priority: 0.4 },
+        { url: base + "/privacy-policy", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+        { url: base + "/terms", lastModified: now, changeFrequency: "yearly", priority: 0.3 },
         ];
 }
