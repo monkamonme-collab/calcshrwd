@@ -15,6 +15,7 @@ const tools = [
   { title: "Loan Calculator", description: "Estimate monthly payments and total interest.", href: "/tools/loan-calculator", icon: "\uD83C\uDFE6" },
   { title: "Word Counter", description: "Count words, characters, and reading time.", href: "/tools/word-counter", icon: "\u270D\uFE0F" },
   { title: "BMI Calculator", description: "Calculate your Body Mass Index.", href: "/tools/bmi-calculator", icon: "\u2696\uFE0F" },
+  { title: "Compound Interest Calculator", description: "See how your money grows with compound interest.", href: "/tools/compound-interest-calculator", icon: "📈" },
 ];
 
 export default function ToolsPage() {
