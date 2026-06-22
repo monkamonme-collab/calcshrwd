@@ -64,6 +64,14 @@ const articles = [
     readTime: "4 min read",
     tool: { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
   },
+  {
+        slug: "word-count-guide",
+        title: "Word Count Guide: Why It Matters and How to Use It",
+        description:
+                "Standard word count targets for essays, blog posts, emails, and more. Plus reading time estimates and tips to hit your target.",
+        readTime: "4 min read",
+        tool: { label: "Word Counter", href: "/tools/word-counter" },
+  },
 ];
 
 export default function BlogPage() {
