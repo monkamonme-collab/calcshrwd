@@ -18,6 +18,7 @@ export default function CompoundInterestCalculator() {
     const pmt = parseFloat(contribution) || 0;
 
     if (p <= 0 && pmt <= 0) return null;
+    if (r < 0 || t <= 0) return null;
 
     const futureValuePrincipal = p * Math.pow(1 + r / n, n * t);
     const futureValueContributions = pmt * ((Math.pow(1 + r / n, n * t) - 1) / (r / n));

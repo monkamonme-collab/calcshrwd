@@ -29,7 +29,7 @@ export default function GPACalculator() {
   const { gpa, totalCredits } = (() => {
     let points = 0, credits = 0;
     for (const r of rows) {
-      const c = parseFloat(r.credits) || 0;
+      const c = Math.max(0, parseFloat(r.credits) || 0);
       const p = GRADE_POINTS[r.grade] ?? 0;
       points += c * p;
       credits += c;

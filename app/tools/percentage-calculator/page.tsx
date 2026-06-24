@@ -15,14 +15,11 @@ export default function PercentageCalculator() {
     const bv = parseFloat(b);
     if (isNaN(av) || isNaN(bv)) return null;
     if (mode === "percentOf") {
-      // What is A% of B?
       return { label: `${av}% of ${bv} =`, value: (av / 100) * bv };
     } else if (mode === "whatPercent") {
-      // A is what % of B?
       if (bv === 0) return null;
       return { label: `${av} is what % of ${bv} =`, value: (av / bv) * 100 };
     } else {
-      // % change from A to B
       if (av === 0) return null;
       const change = ((bv - av) / Math.abs(av)) * 100;
       return { label: `% change from ${av} to ${bv} =`, value: change };
@@ -51,7 +48,6 @@ export default function PercentageCalculator() {
       </p>
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
-        {/* Mode selector */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Calculator Type</label>
           <div className="flex flex-col gap-2">
@@ -77,6 +73,14 @@ export default function PercentageCalculator() {
             placeholder="e.g. 150"
             className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
         </div>
+
+        {!result && (a !== "" || b !== "") && (
+          <p className="text-center text-sm text-amber-500">Invalid input — please check for zero divisor or missing values.</p>
+        )}
+
+        {!result && a === "" && b === "" && (
+          <p className="text-center text-sm text-slate-400">Enter values above to calculate.</p>
+        )}
 
         {result && (
           <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">

@@ -29,9 +29,9 @@ export default function PaycheckCalculator() {
   const [retirement401k, setRetirement401k] = useState("");
 
   const annualGross = (() => {
-    const val = parseFloat(salary) || 0;
+    const val = Math.max(0, parseFloat(salary) || 0);
     if (payType === "annual") return val;
-    return val * (parseFloat(hoursPerWeek) || 40) * 52;
+    return val * Math.max(0, parseFloat(hoursPerWeek) || 40) * 52;
   })();
 
   const periodsMap = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12 };
@@ -41,7 +41,6 @@ export default function PaycheckCalculator() {
   const retirementAmt = (annualGross * (parseFloat(retirement401k) || 0)) / 100;
   const federalTaxableIncome = Math.max(0, annualGross - retirementAmt);
 
-  // 2026 Federal tax (approximate)
   const federalTax = (() => {
     const brackets = filingStatus === "single"
       ? [[11925, 0.10], [48475, 0.12], [103350, 0.22], [197300, 0.24], [250525, 0.32], [626350, 0.35], [Infinity, 0.37]]
@@ -77,7 +76,6 @@ export default function PaycheckCalculator() {
       </p>
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
-        {/* Pay type toggle */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Pay Type</label>
           <div className="flex gap-2">
@@ -90,7 +88,6 @@ export default function PaycheckCalculator() {
           </div>
         </div>
 
-        {/* Salary input */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             {payType === "annual" ? "Annual Salary ($)" : "Hourly Rate ($)"}
@@ -108,7 +105,6 @@ export default function PaycheckCalculator() {
           </div>
         )}
 
-        {/* Pay frequency */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Pay Frequency</label>
           <select value={payFreq} onChange={(e) => setPayFreq(e.target.value as typeof payFreq)}
@@ -120,7 +116,6 @@ export default function PaycheckCalculator() {
           </select>
         </div>
 
-        {/* Filing status */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Filing Status</label>
           <div className="flex gap-2">
@@ -133,7 +128,6 @@ export default function PaycheckCalculator() {
           </div>
         </div>
 
-        {/* State */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">State</label>
           <select value={state} onChange={(e) => setState(e.target.value)}
@@ -144,7 +138,6 @@ export default function PaycheckCalculator() {
           </select>
         </div>
 
-        {/* 401k */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             401(k) Contribution (% of gross)
@@ -155,7 +148,6 @@ export default function PaycheckCalculator() {
         </div>
       </div>
 
-      {/* Results */}
       {annualGross > 0 && (
         <div className="mt-6 space-y-4">
           <div className="bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4">

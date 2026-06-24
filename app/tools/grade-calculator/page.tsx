@@ -21,7 +21,7 @@ export default function GradeCalculator() {
     let weightedSum = 0, totalW = 0;
     for (const item of items) {
       const s = parseFloat(item.score);
-      const t = parseFloat(item.total) || 100;
+      const t = Math.max(0.01, parseFloat(item.total) || 100);
       const w = parseFloat(item.weight) || 0;
       if (!isNaN(s) && w > 0) {
         weightedSum += (s / t) * w;
