@@ -13,7 +13,7 @@ export default function WordCounter() {
     const charsNoSpaces = text.replace(/\s/g, "").length;
     const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0).length;
     const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim().length > 0).length;
-    const readingTime = Math.ceil(words / (parseFloat(wpm) || 200));
+    const readingTime = Math.ceil(words / Math.max(1, parseFloat(wpm) || 200));
     const speakingTime = Math.ceil(words / 130);
     return { words, chars, charsNoSpaces, sentences, paragraphs, readingTime, speakingTime };
   }, [text, wpm]);

@@ -14,16 +14,16 @@ export default function BMICalculator() {
 
   const bmi = (() => {
     const w = parseFloat(weight);
-    if (!w) return null;
+    if (!w || w <= 0) return null;
     if (unit === "imperial") {
       const ft = parseFloat(feet) || 0;
       const inc = parseFloat(inches) || 0;
       const totalInches = ft * 12 + inc;
-      if (!totalInches) return null;
+      if (totalInches <= 0) return null;
       return (703 * w) / (totalInches * totalInches);
     } else {
       const h = parseFloat(cm);
-      if (!h) return null;
+      if (!h || h <= 0) return null;
       return w / ((h / 100) * (h / 100));
     }
   })();
@@ -56,7 +56,6 @@ export default function BMICalculator() {
       <p className="text-slate-500 mb-8">Calculate your Body Mass Index (BMI) using imperial or metric measurements.</p>
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
-        {/* Unit toggle */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Units</label>
           <div className="flex gap-2">
@@ -69,7 +68,6 @@ export default function BMICalculator() {
           </div>
         </div>
 
-        {/* Height */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Height</label>
           {unit === "imperial" ? (
@@ -92,7 +90,6 @@ export default function BMICalculator() {
           )}
         </div>
 
-        {/* Weight */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Weight ({unit === "imperial" ? "lbs" : "kg"})
@@ -102,12 +99,14 @@ export default function BMICalculator() {
             className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
         </div>
 
-        {bmi && cat && (
+        {bmi && cat ? (
           <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
             <p className="text-slate-300 text-sm mb-1">Your BMI</p>
             <p className={`text-5xl font-bold ${cat.color}`}>{bmi.toFixed(1)}</p>
             <p className={`text-lg font-semibold mt-2 ${cat.color}`}>{cat.label}</p>
           </div>
+        ) : (
+          <p className="text-center text-sm text-slate-400">Enter your height and weight above to see your BMI.</p>
         )}
 
         <div className="grid grid-cols-2 gap-2 pt-2">

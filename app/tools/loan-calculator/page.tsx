@@ -15,7 +15,7 @@ export default function LoanCalculator() {
     const years = parseFloat(termYears) || 0;
     const months = parseFloat(termMonths) || 0;
     const totalMonths = years * 12 + months;
-    if (!P || !annualRate || !totalMonths) return null;
+    if (P <= 0 || annualRate < 0 || totalMonths <= 0) return null;
     const r = annualRate / 100 / 12;
     const n = totalMonths;
     let monthlyPayment: number;
@@ -82,6 +82,10 @@ export default function LoanCalculator() {
             ))}
           </div>
         </div>
+
+        {!results && (
+          <p className="text-center text-sm text-slate-400">Enter loan amount, rate, and term above to see your payment.</p>
+        )}
 
         {results && (
           <div className="space-y-3 mt-2">
