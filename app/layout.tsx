@@ -47,9 +47,9 @@ export default function RootLayout({
           <html lang="en" className="h-full">
                 <body className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-800">
                         <Header />
-                        <main className="flex-grow">{children}</main>main>
+                        <main className="flex-grow">{children}</main>
                         <Footer />
-                </body>body>
-          </html>html>
+                </body>
+          </html>
         );
-}</html>
+}
