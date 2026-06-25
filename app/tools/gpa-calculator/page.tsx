@@ -40,6 +40,8 @@ export default function GPACalculator() {
   const gpaColor = gpa >= 3.7 ? "text-[#00B4A6]" : gpa >= 3.0 ? "text-blue-400" : gpa >= 2.0 ? "text-yellow-400" : "text-red-400";
 
   return (
+    <>
+  
     <div className="max-w-2xl mx-auto px-6 py-10">
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>{" / "}
@@ -96,5 +98,89 @@ export default function GPACalculator() {
         )}
       </div>
     </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-xl mx-auto px-6 pb-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+            {
+                        "@type": "Question",
+                        "name": "How is GPA calculated?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "GPA is calculated by multiplying each course grade (on a 4.0 scale) by its credit hours, summing all those values, then dividing by the total credit hours. For example: an A (4.0) in a 3-credit course contributes 12 grade points."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What is a good GPA in college?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "A GPA of 3.5 or above is generally considered very good and qualifies for Dean's List at most schools. A 3.0 (B average) is typically the minimum for graduate school applications."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "How do I calculate GPA with different credit hours?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Multiply each grade point value by the number of credit hours for that course. Sum all grade points, then divide by total credit hours. Our GPA calculator handles weighted credit hours automatically."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What is the difference between weighted and unweighted GPA?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "An unweighted GPA uses a standard 4.0 scale for all courses. A weighted GPA gives extra points for harder courses like AP or honors classes, allowing scores above 4.0."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "How do I raise my GPA?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Focus on courses with high credit hours since they impact your GPA more. Retaking courses where you did poorly (if your school allows grade replacement) can also significantly improve your GPA."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What GPA do you need to get into medical school?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Most medical schools look for a GPA of 3.5 or higher. The average GPA of accepted medical school students in the US is around 3.7."
+                        }
+            }
+]
+            })
+          }}
+        />
+        <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6 mt-10">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          {[
+            { q: "How is GPA calculated?", a: "GPA is calculated by multiplying each course grade (on a 4.0 scale) by its credit hours, summing all those values, then dividing by the total credit hours. For example: an A (4.0) in a 3-credit course contributes 12 grade points." },
+            { q: "What is a good GPA in college?", a: "A GPA of 3.5 or above is generally considered very good and qualifies for Dean's List at most schools. A 3.0 (B average) is typically the minimum for graduate school applications." },
+            { q: "How do I calculate GPA with different credit hours?", a: "Multiply each grade point value by the number of credit hours for that course. Sum all grade points, then divide by total credit hours. Our GPA calculator handles weighted credit hours automatically." },
+            { q: "What is the difference between weighted and unweighted GPA?", a: "An unweighted GPA uses a standard 4.0 scale for all courses. A weighted GPA gives extra points for harder courses like AP or honors classes, allowing scores above 4.0." },
+            { q: "How do I raise my GPA?", a: "Focus on courses with high credit hours since they impact your GPA more. Retaking courses where you did poorly (if your school allows grade replacement) can also significantly improve your GPA." },
+            { q: "What GPA do you need to get into medical school?", a: "Most medical schools look for a GPA of 3.5 or higher. The average GPA of accepted medical school students in the US is around 3.7." }
+          ].map(({ q, a }) => (
+            <details key={q} className="group border border-slate-200 rounded-xl overflow-hidden">
+              <summary className="flex justify-between items-center cursor-pointer px-5 py-4 bg-white hover:bg-slate-50 font-medium text-[#1E3A5F]">
+                {q}
+                <span className="ml-4 text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-5 py-4 text-slate-600 text-sm bg-slate-50 border-t border-slate-100">{a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+
+    </>
   );
 }
