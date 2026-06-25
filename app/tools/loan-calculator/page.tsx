@@ -32,6 +32,8 @@ export default function LoanCalculator() {
   const fmt = (n: number) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
+    <>
+  
     <div className="max-w-xl mx-auto px-6 py-10">
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>{" / "}
@@ -107,5 +109,89 @@ export default function LoanCalculator() {
         )}
       </div>
     </div>
+
+      {/* FAQ Section */}
+      <div className="max-w-xl mx-auto px-6 pb-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+            {
+                        "@type": "Question",
+                        "name": "How is a monthly loan payment calculated?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Monthly payment = P × [r(1+r)^n] ÷ [(1+r)^n − 1], where P is the principal, r is the monthly interest rate (annual rate ÷ 12), and n is the number of payments. Our calculator does this automatically."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What is the difference between APR and interest rate?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "The interest rate is the cost of borrowing the principal. APR (Annual Percentage Rate) includes the interest rate plus other fees and costs, giving a more complete picture of the loan's total cost."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "How do I pay off a loan faster?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Make extra payments directly toward the principal, make biweekly instead of monthly payments, or round up your monthly payment. Even small extra amounts can save significant interest over the loan's life."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What credit score do I need for a personal loan?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Most lenders require a minimum credit score of 580–640 for a personal loan. A score above 700 typically qualifies for the best interest rates."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "How much does a $10,000 loan cost per month?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "It depends on the interest rate and term. At 7% APR over 3 years, a $10,000 loan costs about $309/month. At 15% APR over 5 years, it costs about $238/month but you pay much more in total interest."
+                        }
+            },
+            {
+                        "@type": "Question",
+                        "name": "What is an amortization schedule?",
+                        "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "An amortization schedule shows the breakdown of each payment into principal and interest over the life of the loan. Early payments are mostly interest; later payments are mostly principal."
+                        }
+            }
+]
+            })
+          }}
+        />
+        <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6 mt-10">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          {[
+            { q: "How is a monthly loan payment calculated?", a: "Monthly payment = P × [r(1+r)^n] ÷ [(1+r)^n − 1], where P is the principal, r is the monthly interest rate (annual rate ÷ 12), and n is the number of payments. Our calculator does this automatically." },
+            { q: "What is the difference between APR and interest rate?", a: "The interest rate is the cost of borrowing the principal. APR (Annual Percentage Rate) includes the interest rate plus other fees and costs, giving a more complete picture of the loan's total cost." },
+            { q: "How do I pay off a loan faster?", a: "Make extra payments directly toward the principal, make biweekly instead of monthly payments, or round up your monthly payment. Even small extra amounts can save significant interest over the loan's life." },
+            { q: "What credit score do I need for a personal loan?", a: "Most lenders require a minimum credit score of 580–640 for a personal loan. A score above 700 typically qualifies for the best interest rates." },
+            { q: "How much does a $10,000 loan cost per month?", a: "It depends on the interest rate and term. At 7% APR over 3 years, a $10,000 loan costs about $309/month. At 15% APR over 5 years, it costs about $238/month but you pay much more in total interest." },
+            { q: "What is an amortization schedule?", a: "An amortization schedule shows the breakdown of each payment into principal and interest over the life of the loan. Early payments are mostly interest; later payments are mostly principal." }
+          ].map(({ q, a }) => (
+            <details key={q} className="group border border-slate-200 rounded-xl overflow-hidden">
+              <summary className="flex justify-between items-center cursor-pointer px-5 py-4 bg-white hover:bg-slate-50 font-medium text-[#1E3A5F]">
+                {q}
+                <span className="ml-4 text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="px-5 py-4 text-slate-600 text-sm bg-slate-50 border-t border-slate-100">{a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+
+    </>
   );
 }
