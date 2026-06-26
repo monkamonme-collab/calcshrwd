@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default function HowToCalculateTakeHomePayArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between gross pay and take-home pay?","acceptedAnswer":{"@type":"Answer","text":"Gross pay is your total earnings before any deductions. Take-home pay (net pay) is what you actually receive after federal income tax, FICA taxes (Social Security and Medicare), state taxes, and any voluntary deductions like 401(k) contributions or health insurance premiums are subtracted."}},{"@type":"Question","name":"What are FICA taxes?","acceptedAnswer":{"@type":"Answer","text":"FICA stands for Federal Insurance Contributions Act. It consists of two taxes: Social Security at 6.2% of gross wages (up to the annual wage base) and Medicare at 1.45% of all wages. Your employer matches these amounts, making the total FICA contribution 15.3% split between you and your employer."}},{"@type":"Question","name":"How do pre-tax deductions affect my paycheck?","acceptedAnswer":{"@type":"Answer","text":"Pre-tax deductions like 401(k) contributions, HSA, FSA, and certain health insurance premiums are subtracted before taxes are calculated. This reduces your taxable income, so you pay less in income tax. For example, a $200 pre-tax contribution may only reduce your net pay by around $140 after the tax savings."}},{"@type":"Question","name":"Which states have no income tax?","acceptedAnswer":{"@type":"Answer","text":"Nine states have no state income tax: Alaska, Florida, Nevada, New Hampshire (on earned income), South Dakota, Tennessee, Texas, Washington, and Wyoming. Residents of these states keep a higher percentage of their gross pay than residents of high-tax states like California or New York."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
