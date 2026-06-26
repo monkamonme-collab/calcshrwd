@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default function UnderstandingLoanInterestArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between simple and compound interest?","acceptedAnswer":{"@type":"Answer","text":"Simple interest is calculated only on the original principal: Interest = Principal × Rate × Time. Compound interest is calculated on the principal plus any accumulated interest, so it grows faster. Most mortgages and credit cards use compound interest."}},{"@type":"Question","name":"What is APR and how is it different from the interest rate?","acceptedAnswer":{"@type":"Answer","text":"The interest rate is the basic cost of borrowing the principal. APR (Annual Percentage Rate) includes the interest rate plus additional fees, points, and costs expressed as a yearly percentage. APR gives a more complete picture of the loan cost and is the right number to compare when shopping for loans."}},{"@type":"Question","name":"How can I pay less interest on a loan?","acceptedAnswer":{"@type":"Answer","text":"Key strategies include making extra principal payments each month, refinancing when rates fall, choosing a shorter loan term, improving your credit score before applying, and making biweekly instead of monthly payments (which adds one extra payment per year)."}},{"@type":"Question","name":"Why does most of my early mortgage payment go to interest?","acceptedAnswer":{"@type":"Answer","text":"Mortgages use amortization, where each payment covers both interest and principal. In the early years, the outstanding balance is large, so interest charges are high and little goes to principal. Over time the balance shrinks, more of each payment reduces principal, and interest charges fall."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
