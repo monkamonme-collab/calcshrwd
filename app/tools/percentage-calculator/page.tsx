@@ -43,7 +43,11 @@ export default function PercentageCalculator() {
           <span className="text-slate-600">Percentage Calculator</span>
         </nav>
 
-        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Percentage Calculator</h1>
+<div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6">
+                <img src="https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?w=1200&h=400&fit=crop&fm=webp" alt="Math and percentage calculation" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
+              </div>
+                      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Percentage Calculator</h1>
         <p className="text-slate-500 mb-8">
           Calculate percentages, find what percent one number is of another, or compute percent change.
         </p>
