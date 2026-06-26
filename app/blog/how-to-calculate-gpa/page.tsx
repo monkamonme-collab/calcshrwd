@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "How to Calculate GPA | Step-by-Step Guide",
+  title: "How to Calculate GPA | Step-by-Step Guide",
   description: "Learn how to calculate your GPA using the 4.0 scale. Covers unweighted and weighted GPA with a full grade table and worked examples.",
+  alternates: {
+    canonical: "https://www.calcshrwd.com/blog/how-to-calculate-gpa",
+  },
 };
 
 export default function HowToCalculateGPAArticle() {
