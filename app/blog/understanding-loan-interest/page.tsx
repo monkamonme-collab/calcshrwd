@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Understanding Loan Interest: Simple vs Compound",
   description: "Learn the difference between simple and compound interest, how amortization works, and strategies to pay off loans faster.",
+  alternates: {
+    canonical: "https://www.calcshrwd.com/blog/understanding-loan-interest",
+  },
 };
 
 export default function UnderstandingLoanInterestArticle() {
