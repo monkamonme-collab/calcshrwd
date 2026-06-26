@@ -32,6 +32,10 @@ const tipData = [
 export default function TippingGuideUSAArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much should I tip at a restaurant in the US?","acceptedAnswer":{"@type":"Answer","text":"The standard tip at a US sit-down restaurant is 18-20% of the pre-tax bill. 20% is common for good service, 15% for adequate service, and more for exceptional service. Tipping below 15% is generally considered a signal of poor service."}},{"@type":"Question","name":"Do you tip before or after tax?","acceptedAnswer":{"@type":"Answer","text":"It is customary to tip on the pre-tax subtotal, though many people tip on the total for simplicity. The difference is small — on a $50 meal with 8% tax, the pre-tax tip at 20% is $10 versus $10.80 post-tax."}},{"@type":"Question","name":"How much do you tip for food delivery?","acceptedAnswer":{"@type":"Answer","text":"A standard food delivery tip is 15-20% of the order total, with a minimum of $3-5 regardless of order size. Tip more for difficult weather conditions, large orders, or long distances."}},{"@type":"Question","name":"Is tipping mandatory in the US?","acceptedAnswer":{"@type":"Answer","text":"Tipping is not legally required in the US, but it is a strong social norm in many service industries. Restaurant servers and other tipped workers often earn wages below minimum wage, with tips expected to make up the difference. Not tipping when expected is considered poor etiquette."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
