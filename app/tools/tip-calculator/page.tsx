@@ -26,7 +26,15 @@ export default function TipCalculator() {
           <span className="text-slate-600">Tip Calculator</span>
         </nav>
 
-        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Tip Calculator</h1>
+<div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1555243896-c709bfa0b564?w=1200&h=400&fit=crop&fm=webp"
+            alt="Tip calculator — restaurant bill and tip calculation"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
+        </div>
+                <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Tip Calculator</h1>
         <p className="text-slate-500 mb-8">
           Calculate the right tip amount and split the bill among your group.
         </p>
