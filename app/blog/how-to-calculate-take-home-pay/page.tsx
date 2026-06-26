@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How to Calculate Take-Home Pay | Paycheck Guide",
   description: "Understand what is deducted from your paycheck. Learn about federal taxes, FICA, state taxes, and voluntary deductions to estimate your net pay.",
+  alternates: {
+    canonical: "https://www.calcshrwd.com/blog/how-to-calculate-take-home-pay",
+  },
 };
 
 export default function HowToCalculateTakeHomePayArticle() {
