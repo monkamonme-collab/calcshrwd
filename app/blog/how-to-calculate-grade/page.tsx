@@ -13,6 +13,10 @@ export default function HowToCalculateGrade() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
       <article>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my grade using a weighted system?","acceptedAnswer":{"@type":"Answer","text":"Multiply your average score in each category by its weight as a decimal, then add the results together. For example, if homework (20%) averages 90%, tests (50%) average 78%, and the final (30%) is 85%, your grade = (90 × 0.20) + (78 × 0.50) + (85 × 0.30) = 18 + 39 + 25.5 = 82.5%."}},{"@type":"Question","name":"What score do I need on my final exam to pass?","acceptedAnswer":{"@type":"Answer","text":"Use this formula: Required Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight. For example, if your current grade is 80%, the final is worth 30%, and you want an 85%: Required = (85 − 80 × 0.70) ÷ 0.30 = (85 − 56) ÷ 0.30 = 96.7%."}},{"@type":"Question","name":"What is the difference between points-based and weighted category grading?","acceptedAnswer":{"@type":"Answer","text":"Points-based grading adds all points earned and divides by total possible points. Weighted category grading groups assignments into categories (homework, tests, final) and assigns each category a percentage of the final grade. Both are common in US schools."}},{"@type":"Question","name":"What percentage is an A grade?","acceptedAnswer":{"@type":"Answer","text":"On the standard US grading scale, an A is typically 90% to 100%. Some schools require 93% or higher for an A and 90% to 92% for an A-. Always check your course syllabus since cutoffs vary by instructor and school."}}]}` }}
+        />
         <h1 className="text-3xl font-bold mb-4">How to Calculate Your Grade</h1>
         <p className="text-gray-500 text-sm mb-8">Updated June 2025 · 6 min read</p>
 
