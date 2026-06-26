@@ -61,7 +61,11 @@ export default function AgeCalculator() {
           <Link href="/tools" className="hover:text-[#00B4A6]">Tools</Link>{" / "}
           <span className="text-slate-600">Age Calculator</span>
         </nav>
-        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Age Calculator</h1>
+<div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=400&fit=crop&fm=webp" alt="Age calculator — birthday and time" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
+        </div>
+        feat: add hero image to age-calculator        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Age Calculator</h1>
         <p className="text-slate-500 mb-8">Calculate your exact age in years, months, days, weeks, and total days.</p>
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
