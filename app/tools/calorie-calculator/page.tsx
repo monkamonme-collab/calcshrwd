@@ -72,7 +72,11 @@ export default function CalorieCalculator() {
           <Link href="/tools" className="hover:text-[#00B4A6]">Tools</Link>{" / "}
           <span className="text-slate-600">Calorie Calculator</span>
         </nav>
-        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Calorie Calculator</h1>
+<div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&h=400&fit=crop&fm=webp" alt="Calorie calculator — healthy food and nutrition" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
+        </div>
+                <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Calorie Calculator</h1>
         <p className="text-slate-500 mb-8">Calculate your daily calorie needs (TDEE) based on the Mifflin-St Jeor equation.</p>
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
