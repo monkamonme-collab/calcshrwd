@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Tipping Guide USA: How Much to Tip in Every Situation",
   description: "A complete US tipping guide covering restaurants, delivery, hotels, taxis, salons, and more. Includes quick mental math tricks.",
+  alternates: {
+    canonical: "https://www.calcshrwd.com/blog/tipping-guide-usa",
+  },
 };
 
 const tipData = [
