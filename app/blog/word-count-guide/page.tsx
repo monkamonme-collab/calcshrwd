@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default function WordCountGuideArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long should a blog post be?","acceptedAnswer":{"@type":"Answer","text":"A standard informational blog post is typically 1,000 to 1,500 words. Short posts covering news or quick tips can be 300 to 600 words. Long-form guides and comprehensive articles usually run 2,000 to 4,000 words. The right length depends on how much depth the topic requires."}},{"@type":"Question","name":"How many words per minute does an average person read?","acceptedAnswer":{"@type":"Answer","text":"The average adult reads silently at about 200 to 250 words per minute. Reading aloud runs slower at around 130 words per minute. A 1,000-word article takes roughly 4 minutes to read, while a 2,500-word article takes about 10 minutes."}},{"@type":"Question","name":"How long should a college application essay be?","acceptedAnswer":{"@type":"Answer","text":"Most college application essays have a stated limit of 250 to 650 words, with the Common App main essay capped at 650 words. Always follow the stated limit exactly. If no limit is given, aim for 500 to 650 words to provide enough substance without padding."}},{"@type":"Question","name":"What is the difference between word count and character count?","acceptedAnswer":{"@type":"Answer","text":"Word count counts the number of words, while character count counts every individual letter, space, and punctuation mark. Social media platforms like Twitter and SMS use character limits. As a rough guide, the average English word is about 5 characters plus a space, so a 280-character limit fits roughly 45 words."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
