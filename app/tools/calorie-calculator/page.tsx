@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const activityLabels = {
+type Activity = "sedentary" | "light" | "moderate" | "active" | "very_active";
+
+const activityLabels: Record<Activity, string> = {
   sedentary: "Sedentary (little or no exercise)",
   light: "Lightly active (1–3 days/week)",
   moderate: "Moderately active (3–5 days/week)",
@@ -11,25 +13,26 @@ const activityLabels = {
   very_active: "Very active (hard exercise twice daily)",
 };
 
-const activityMultipliers = {
+const activityMultipliers: Record<Activity, number> = {
   sedentary: 1.2, light: 1.375, moderate: 1.55, active: 1.725, very_active: 1.9,
 };
 
 export default function CalorieCalculator() {
-  const [unit, setUnit] = useState("imperial");
-  const [sex, setSex] = useState("male");
+  const [unit, setUnit] = useState<"imperial" | "metric">("imperial");
+  const [sex, setSex] = useState<"male" | "female">("male");
   const [age, setAge] = useState("");
   const [heightFt, setHeightFt] = useState("");
   const [heightIn, setHeightIn] = useState("");
   const [heightCm, setHeightCm] = useState("");
   const [weightLbs, setWeightLbs] = useState("");
   const [weightKg, setWeightKg] = useState("");
-  const [activity, setActivity] = useState("moderate");
+  const [activity, setActivity] = useState<Activity>("moderate");
 
   const result = (() => {
     const a = parseFloat(age);
     if (!a || a <= 0 || a > 120) return null;
-    let weightKgVal, heightCmVal;
+    let weightKgVal: number;
+    let heightCmVal: number;
     if (unit === "imperial") {
       const lbs = parseFloat(weightLbs);
       const ft = parseFloat(heightFt) || 0;
@@ -41,7 +44,8 @@ export default function CalorieCalculator() {
       const kg = parseFloat(weightKg);
       const cm = parseFloat(heightCm);
       if (!kg || !cm || kg <= 0 || cm <= 0) return null;
-      weightKgVal = kg; heightCmVal = cm;
+      weightKgVal = kg;
+      heightCmVal = cm;
     }
     if (heightCmVal <= 0) return null;
     const bmr = sex === "male"
@@ -52,10 +56,10 @@ export default function CalorieCalculator() {
   })();
 
   const faqItems = [
-    { q: "How many calories do I need per day?", a: "Daily calorie needs depend on your age, sex, height, weight, and activity level. Most adults need between 1,600 and 3,000 calories per day. This calculator uses the Mifflin-St Jeor equation to estimate your Total Daily Energy Expenditure (TDEE)." },
-    { q: "What is BMR vs TDEE?", a: "BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, representing total calories burned including movement and exercise." },
-    { q: "How many calories should I eat to lose weight?", a: "A 500 calorie/day deficit below your TDEE leads to approximately 1 lb of fat loss per week. A 1,000 calorie deficit leads to ~2 lbs/week, which is generally the safe maximum. Going below 1,200 cal/day (women) or 1,500 cal/day (men) is not recommended without medical supervision." },
-    { q: "What is the Mifflin-St Jeor equation?", a: "For men: BMR = 10W + 6.25H − 5A + 5. For women: BMR = 10W + 6.25H − 5A − 161. Where W = weight in kg, H = height in cm, A = age in years. Studies show it is more accurate than the older Harris-Benedict equation for most people." },
+    { q: "How many calories do I need per day?", a: "Daily calorie needs depend on your age, sex, height, weight, and activity level. Most adults need between 1,600 and 3,000 calories per day. This calculator uses the Mifflin-St Jeor equation — considered the most accurate for most people — to estimate your Total Daily Energy Expenditure (TDEE)." },
+    { q: "What is BMR vs TDEE?", a: "BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest — just to keep your organs functioning. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, representing total calories burned including movement, exercise, and daily activity." },
+    { q: "How many calories should I eat to lose weight?", a: "A 500 calorie/day deficit below your TDEE leads to approximately 1 lb of fat loss per week. A 1,000 calorie deficit leads to ~2 lbs/week, which is generally considered the safe maximum. Going below 1,200 calories/day (women) or 1,500 calories/day (men) is not recommended without medical supervision." },
+    { q: "What is the Mifflin-St Jeor equation?", a: "The Mifflin-St Jeor equation calculates BMR: For men: BMR = 10W + 6.25H − 5A + 5. For women: BMR = 10W + 6.25H − 5A − 161. Where W = weight in kg, H = height in cm, A = age in years. Studies show it is more accurate than the older Harris-Benedict equation for most people." },
     { q: "How many calories do I burn just by existing?", a: "Your BMR — the calories burned at rest — is typically 1,400–1,800 for women and 1,600–2,200 for men. This accounts for 60–75% of your total daily calorie burn. Organs like the liver, brain, and kidneys are responsible for most of this energy use." },
     { q: "Does muscle burn more calories than fat?", a: "Yes. Muscle tissue burns approximately 6 calories per pound per day at rest, compared to about 2 calories per pound for fat. This is why people with more muscle mass have a higher BMR and can generally eat more without gaining weight." }
   ];
@@ -74,7 +78,7 @@ export default function CalorieCalculator() {
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Units</label>
             <div className="flex gap-2">
-              {["imperial", "metric"].map((u) => (
+              {(["imperial", "metric"] as const).map((u) => (
                 <button key={u} onClick={() => setUnit(u)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${unit === u ? "bg-[#1E3A5F] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"}`}>
                   {u === "imperial" ? "Imperial (ft, lbs)" : "Metric (cm, kg)"}
                 </button>
@@ -84,7 +88,7 @@ export default function CalorieCalculator() {
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Sex</label>
             <div className="flex gap-2">
-              {["male", "female"].map((s) => (
+              {(["male", "female"] as const).map((s) => (
                 <button key={s} onClick={() => setSex(s)} className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${sex === s ? "bg-[#1E3A5F] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"}`}>
                   {s.charAt(0).toUpperCase() + s.slice(1)}
                 </button>
@@ -116,8 +120,8 @@ export default function CalorieCalculator() {
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Activity Level</label>
-            <select value={activity} onChange={(e) => setActivity(e.target.value)} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6] bg-white">
-              {Object.entries(activityLabels).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
+            <select value={activity} onChange={(e) => setActivity(e.target.value as Activity)} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6] bg-white">
+              {(Object.keys(activityLabels) as Activity[]).map((k) => <option key={k} value={k}>{activityLabels[k]}</option>)}
             </select>
           </div>
           {result ? (
@@ -140,7 +144,7 @@ export default function CalorieCalculator() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-slate-400">Based on Mifflin-St Jeor. These are estimates — individual metabolism varies. Consult a dietitian for personalized advice.</p>
+              <p className="text-xs text-slate-400">Based on the Mifflin-St Jeor equation. These are estimates — individual metabolism varies. Consult a dietitian for personalized advice.</p>
             </>
           ) : (
             <p className="text-center text-sm text-slate-400">Fill in all fields above to calculate your daily calorie needs.</p>
