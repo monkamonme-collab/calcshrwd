@@ -4,19 +4,22 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "CalcShrwd – Free Online Calculators for Everyday Life",
   description:
-    "Smart, free calculators for Americans — tip, paycheck, GPA, BMI, loan, percentage, and more. Get instant, accurate results.",
+    "Smart, free calculators for Americans — tip, paycheck, GPA, BMI, loan, mortgage, calorie, age, and more. Get instant, accurate results.",
 };
 
 const tools = [
-  { title: "Tip Calculator", description: "Calculate the right tip for any bill, split among friends.", href: "/tools/tip-calculator", icon: "\uD83C\uDF7D\uFE0F" },
-  { title: "Paycheck Calculator", description: "Estimate your take-home pay after federal and state taxes.", href: "/tools/paycheck-calculator", icon: "\uD83D\uDCB0" },
-  { title: "Percentage Calculator", description: "Quickly find percentages, discounts, and percent change.", href: "/tools/percentage-calculator", icon: "\uD83D\uDCCA" },
-  { title: "GPA Calculator", description: "Calculate your GPA from letter grades or percentages.", href: "/tools/gpa-calculator", icon: "\uD83C\uDF93" },
-  { title: "Grade Calculator", description: "Find out what grade you need to pass or hit your target.", href: "/tools/grade-calculator", icon: "\uD83D\uDCDA" },
-  { title: "Loan Calculator", description: "Estimate monthly payments and total interest on any loan.", href: "/tools/loan-calculator", icon: "\uD83C\uDFE6" },
-  { title: "Word Counter", description: "Count words, characters, sentences, and reading time.", href: "/tools/word-counter", icon: "\u270D\uFE0F" },
-  { title: "BMI Calculator", description: "Calculate your Body Mass Index using US standard units.", href: "/tools/bmi-calculator", icon: "\u2696\uFE0F" },
+  { title: "Tip Calculator", description: "Calculate the right tip for any bill, split among friends.", href: "/tools/tip-calculator", icon: "🍽️" },
+  { title: "Paycheck Calculator", description: "Estimate your take-home pay after federal and state taxes.", href: "/tools/paycheck-calculator", icon: "💰" },
+  { title: "Percentage Calculator", description: "Quickly find percentages, discounts, and percent change.", href: "/tools/percentage-calculator", icon: "📊" },
+  { title: "GPA Calculator", description: "Calculate your GPA from letter grades or percentages.", href: "/tools/gpa-calculator", icon: "🎓" },
+  { title: "Grade Calculator", description: "Find out what grade you need to pass or hit your target.", href: "/tools/grade-calculator", icon: "📚" },
+  { title: "Loan Calculator", description: "Estimate monthly payments and total interest on any loan.", href: "/tools/loan-calculator", icon: "🏦" },
+  { title: "Word Counter", description: "Count words, characters, sentences, and reading time.", href: "/tools/word-counter", icon: "✍️" },
+  { title: "BMI Calculator", description: "Calculate your Body Mass Index using US standard units.", href: "/tools/bmi-calculator", icon: "⚖️" },
   { title: "Compound Interest Calculator", description: "See how your money grows over time with compound interest and regular contributions.", href: "/tools/compound-interest-calculator", icon: "📈" },
+  { title: "Age Calculator", description: "Find your exact age in years, months, days, and total days lived.", href: "/tools/age-calculator", icon: "🎂" },
+  { title: "Mortgage Calculator", description: "Calculate monthly mortgage payments and see the full amortization schedule.", href: "/tools/mortgage-calculator", icon: "🏠" },
+  { title: "Calorie Calculator", description: "Find your daily calorie needs (TDEE) based on age, weight, height, and activity.", href: "/tools/calorie-calculator", icon: "🥗" },
 ];
 
 export default function HomePage() {
