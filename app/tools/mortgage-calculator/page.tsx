@@ -41,8 +41,9 @@ export default function MortgageCalculator() {
     return rows;
   })();
 
-  const fmt = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-  const fmtD = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmt = (v: number) => v.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  const fmtD = (v: number) => v.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
   const presets = ["10", "15", "20", "25", "30"];
 
   const faqItems = [
@@ -51,7 +52,7 @@ export default function MortgageCalculator() {
     { q: "Is a 15-year or 30-year mortgage better?", a: "A 15-year mortgage saves significantly on total interest (often 50–60% less) and builds equity faster, but monthly payments are 30–40% higher. A 30-year mortgage has lower monthly payments and more cash flow flexibility. Most financial advisors suggest the 30-year if the payment difference is invested in a retirement account." },
     { q: "How much down payment do I need?", a: "The standard recommendation is 20% to avoid PMI (private mortgage insurance). However, many loans allow 3–5% down — FHA loans require as little as 3.5%. A higher down payment means a smaller loan, lower monthly payments, and less total interest paid." },
     { q: "What is amortization?", a: "Amortization is the process of paying off a loan through regular payments over time. In a mortgage, early payments are mostly interest, and later payments are mostly principal. The full amortization schedule shows exactly how much of each payment goes to interest vs. principal over the life of the loan." },
-    { q: "How does the interest rate affect my mortgage payment?", a: "Even a 1% difference in rate has a large impact. On a $400,000 30-year mortgage, a rate of 6% gives a monthly payment of ~$2,398; at 7% it is ~$2,661 — a difference of $263/month or $94,680 over 30 years." }
+    { q: "How does the interest rate affect my mortgage payment?", a: "Even a 1% difference in rate has a large impact. On a $400,000 30-year mortgage, a rate of 6% gives a monthly payment of ~$2,398; at 7% it's ~$2,661 — a difference of $263/month or $94,680 over 30 years." }
   ];
 
   return (
@@ -73,7 +74,10 @@ export default function MortgageCalculator() {
             <label className="block text-sm font-medium text-slate-700 mb-2">Down Payment ($)</label>
             <input type="number" value={down} onChange={(e) => setDown(e.target.value)} placeholder="e.g. 80000" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
             {home && down && parseFloat(home) > 0 && (
-              <p className="text-xs text-slate-400 mt-1">{((parseFloat(down) / parseFloat(home)) * 100).toFixed(1)}% down{parseFloat(down) / parseFloat(home) < 0.2 && " — PMI may apply"}</p>
+              <p className="text-xs text-slate-400 mt-1">
+                {((parseFloat(down) / parseFloat(home)) * 100).toFixed(1)}% down
+                {parseFloat(down) / parseFloat(home) < 0.2 && " — PMI may apply"}
+              </p>
             )}
           </div>
           <div>
@@ -84,7 +88,9 @@ export default function MortgageCalculator() {
             <label className="block text-sm font-medium text-slate-700 mb-2">Loan Term (years)</label>
             <div className="flex gap-2 flex-wrap">
               {presets.map((p) => (
-                <button key={p} onClick={() => setYears(p)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${years === p ? "bg-[#1E3A5F] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"}`}>{p} yr</button>
+                <button key={p} onClick={() => setYears(p)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${years === p ? "bg-[#1E3A5F] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"}`}>
+                  {p} yr
+                </button>
               ))}
             </div>
           </div>
@@ -96,7 +102,11 @@ export default function MortgageCalculator() {
                 <p className="text-slate-400 text-xs mt-1">Principal & Interest only</p>
               </div>
               <div className="grid grid-cols-3 gap-3">
-                {[{ label: "Loan Amount", value: fmt(result.principal) }, { label: "Total Interest", value: fmt(result.totalInterest) }, { label: "Total Cost", value: fmt(result.totalPayment) }].map(({ label, value }) => (
+                {[
+                  { label: "Loan Amount", value: fmt(result.principal) },
+                  { label: "Total Interest", value: fmt(result.totalInterest) },
+                  { label: "Total Cost", value: fmt(result.totalPayment) },
+                ].map(({ label, value }) => (
                   <div key={label} className="bg-slate-50 rounded-xl p-4 text-center border border-slate-200">
                     <p className="text-lg font-bold text-[#1E3A5F]">{value}</p>
                     <p className="text-xs text-slate-500 mt-1">{label}</p>
@@ -109,7 +119,14 @@ export default function MortgageCalculator() {
               {showSchedule && (
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs border-collapse">
-                    <thead><tr className="bg-slate-100"><th className="px-3 py-2 text-left text-slate-600 font-semibold">Month</th><th className="px-3 py-2 text-right text-slate-600 font-semibold">Principal</th><th className="px-3 py-2 text-right text-slate-600 font-semibold">Interest</th><th className="px-3 py-2 text-right text-slate-600 font-semibold">Balance</th></tr></thead>
+                    <thead>
+                      <tr className="bg-slate-100">
+                        <th className="px-3 py-2 text-left text-slate-600 font-semibold">Month</th>
+                        <th className="px-3 py-2 text-right text-slate-600 font-semibold">Principal</th>
+                        <th className="px-3 py-2 text-right text-slate-600 font-semibold">Interest</th>
+                        <th className="px-3 py-2 text-right text-slate-600 font-semibold">Balance</th>
+                      </tr>
+                    </thead>
                     <tbody>
                       {schedule.map((row, i) => (
                         <tr key={row.month} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
@@ -143,4 +160,4 @@ export default function MortgageCalculator() {
       </div>
     </>
   );
-}
+          }
