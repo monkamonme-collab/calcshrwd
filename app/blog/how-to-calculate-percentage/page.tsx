@@ -13,6 +13,10 @@ export default function HowToCalculatePercentage() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
       <article>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate a percentage of a number?","acceptedAnswer":{"@type":"Answer","text":"To find X% of Y, use the formula: Result = (X ÷ 100) × Y. For example, 20% of $85 = (20 ÷ 100) × 85 = $17. A quick shortcut: find 10% by moving the decimal one place left, then multiply or divide to get the percentage you need."}},{"@type":"Question","name":"How do I calculate percentage change?","acceptedAnswer":{"@type":"Answer","text":"Percentage change = ((New Value − Old Value) ÷ Old Value) × 100. A positive result is an increase; negative is a decrease. For example, a price rising from $50 to $65 is a (65 − 50) ÷ 50 × 100 = 30% increase."}},{"@type":"Question","name":"How do I find what percent one number is of another?","acceptedAnswer":{"@type":"Answer","text":"Use the formula: Percentage = (Part ÷ Whole) × 100. For example, to find what percent 45 is of 180: (45 ÷ 180) × 100 = 25%. This is useful for test scores, budget ratios, and conversion rates."}},{"@type":"Question","name":"How do I find the original price before a discount?","acceptedAnswer":{"@type":"Answer","text":"If an item costs $68 after a 15% discount, the original price = Sale Price ÷ (1 − Discount Rate) = 68 ÷ 0.85 = $80. For a price that includes tax, divide by (1 + Tax Rate) instead."}}]}` }}
+        />
         <h1 className="text-3xl font-bold mb-4">How to Calculate Percentages</h1>
         <p className="text-gray-500 text-sm mb-8">Updated June 2025 · 5 min read</p>
 
