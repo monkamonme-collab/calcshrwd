@@ -48,7 +48,11 @@ export default function CompoundInterestCalculator() {
         <span className="text-slate-600">Compound Interest Calculator</span>
       </nav>
 
-      <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Compound Interest Calculator</h1>
+<div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=400&fit=crop&fm=webp" alt="Compound interest calculator — investment growth" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
+        </div>
+              <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Compound Interest Calculator</h1>
       <p className="text-slate-500 mb-8">See how your money grows over time with compound interest and regular contributions.</p>
 
       <div className="space-y-5 bg-white border border-slate-100 rounded-xl p-6 shadow-sm mb-6">
