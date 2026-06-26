@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default function HowToCalculateGPAArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is considered a good GPA?","acceptedAnswer":{"@type":"Answer","text":"On a 4.0 scale, a GPA of 3.0 (B average) or higher is generally considered good. A GPA above 3.5 is often considered excellent. For selective college admissions, admitted students typically have GPAs of 3.7 or above."}},{"@type":"Question","name":"What is the difference between weighted and unweighted GPA?","acceptedAnswer":{"@type":"Answer","text":"Unweighted GPA uses a 4.0 scale where an A equals 4.0 in every class. Weighted GPA rewards course difficulty — AP courses typically add 1.0 point and honors courses add 0.5, so an A in AP class counts as 5.0. Many high schools report both."}},{"@type":"Question","name":"How do I calculate GPA with credit hours?","acceptedAnswer":{"@type":"Answer","text":"Multiply each course grade point by its credit hours, sum all the products, then divide by the total number of credit hours. For example, an A (4.0) in a 4-credit course contributes 16 points, while a B (3.0) in a 3-credit course contributes 9 points."}},{"@type":"Question","name":"How can I raise my GPA?","acceptedAnswer":{"@type":"Answer","text":"Focus on improving grades in high-credit courses since they have the greatest impact on your GPA. Consistently maintaining a B+ or above going forward will steadily raise a lower cumulative GPA over time. Some schools allow grade replacement for retaken courses."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
