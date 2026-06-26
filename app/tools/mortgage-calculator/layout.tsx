@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mortgage Calculator | CalcShrwd",
+  title: "Mortgage Calculator",
   description: "Calculate your monthly mortgage payment, total interest, and see the full amortization schedule. Supports 10 to 30-year loans.",
   alternates: { canonical: "https://www.calcshrwd.com/tools/mortgage-calculator" },
   openGraph: {
