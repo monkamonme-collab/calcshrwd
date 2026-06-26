@@ -1,4 +1,70 @@
-import type { Metadata } from "next";
+import Link from "next/link";
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CalcShrwd",
+  "url": "https://www.calcshrwd.com",
+  "description": "Free online calculators for everyday life — tip, paycheck, GPA, BMI, mortgage, loan, age, calorie, and more.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.calcshrwd.com/tools/{search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const tools = [
+  { href: "/tools/tip-calculator", emoji: "💵", label: "Tip Calculator" },
+  { href: "/tools/paycheck-calculator", emoji: "💼", label: "Paycheck Calculator" },
+  { href: "/tools/gpa-calculator", emoji: "🎓", label: "GPA Calculator" },
+  { href: "/tools/bmi-calculator", emoji: "⚖️", label: "BMI Calculator" },
+  { href: "/tools/loan-calculator", emoji: "🏦", label: "Loan Calculator" },
+  { href: "/tools/grade-calculator", emoji: "📝", label: "Grade Calculator" },
+  { href: "/tools/percentage-calculator", emoji: "📊", label: "Percentage Calculator" },
+  { href: "/tools/word-counter", emoji: "📄", label: "Word Counter" },
+  { href: "/tools/compound-interest-calculator", emoji: "📈", label: "Compound Interest" },
+  { href: "/tools/age-calculator", emoji: "🎂", label: "Age Calculator" },
+  { href: "/tools/mortgage-calculator", emoji: "🏠", label: "Mortgage Calculator" },
+  { href: "/tools/calorie-calculator", emoji: "🥗", label: "Calorie Calculator" },
+];
+
+export default function Home() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <main className="min-h-screen bg-white">
+        <section className="max-w-4xl mx-auto px-4 py-16 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Free Online Calculators for Everyday Life
+          </h1>
+          <p className="text-lg text-gray-600 mb-12">
+            Smart, free calculators for Americans — tip, paycheck, GPA, BMI, loan, mortgage, age, calorie, and more.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {tools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 group"
+              >
+                <span className="text-3xl mb-2">{tool.emoji}</span>
+                <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 text-center">
+                  {tool.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
