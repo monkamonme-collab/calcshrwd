@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default function WhatIsBMIArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a healthy BMI range?","acceptedAnswer":{"@type":"Answer","text":"A BMI between 18.5 and 24.9 is considered normal or healthy weight. Below 18.5 is underweight, 25 to 29.9 is overweight, and 30 or above is classified as obese according to standard BMI categories."}},{"@type":"Question","name":"How do I calculate my BMI?","acceptedAnswer":{"@type":"Answer","text":"In imperial units: BMI = 703 × weight (lbs) ÷ height (inches)². In metric: BMI = weight (kg) ÷ height (m)². For example, a person 5 feet 9 inches tall (69 inches) who weighs 160 lbs has a BMI of about 23.6."}},{"@type":"Question","name":"Is BMI accurate for athletes?","acceptedAnswer":{"@type":"Answer","text":"BMI is less accurate for athletes because it does not distinguish muscle from fat. A muscular athlete may fall in the overweight BMI category despite having low body fat. Body fat percentage is a more informative measure for athletes."}},{"@type":"Question","name":"Does BMI work the same for everyone?","acceptedAnswer":{"@type":"Answer","text":"Standard BMI categories apply to adults over 20. For children and teens, BMI is interpreted using age- and gender-specific growth charts. Research also shows that people of Asian descent face higher health risks at lower BMI thresholds than standard categories suggest."}}]}` }}
+      />
       <nav className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
         {" / "}
