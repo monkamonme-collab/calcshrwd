@@ -136,6 +136,21 @@ placeholder="0" min="0"
 <p className="font-medium text-slate-700 mb-1">How it works</p>
 <p>Formula: A = P(1 + r/n)^(nt) where P = principal, r = annual rate, n = compounds per year, t = years. Monthly contributions use the future value of an annuity formula.</p>
 </div>
+<div className="mt-10 pt-8 border-t border-slate-200">
+<h2 className="text-lg font-semibold text-slate-700 mb-4">Related Calculators</h2>
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<Link href="/tools/loan-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">Loan Calculator</span>
+</Link>
+<Link href="/tools/mortgage-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">Mortgage Calculator</span>
+</Link>
+<Link href="/tools/paycheck-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">Paycheck Calculator</span>
+</Link>
+</div>
+</div>
+
 </div>
 );
 }
