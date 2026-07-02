@@ -126,6 +126,21 @@ __html: JSON.stringify({
 </details>
 ))}
 </div>
+<div className="mt-10 pt-8 border-t border-slate-200">
+<h2 className="text-lg font-semibold text-slate-700 mb-4">Related Calculators</h2>
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<Link href="/tools/bmi-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">BMI Calculator</span>
+</Link>
+<Link href="/tools/calorie-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">Calorie Calculator</span>
+</Link>
+<Link href="/tools/paycheck-calculator" className="block p-4 rounded-xl border border-slate-200 hover:border-[#00B4A6] hover:shadow-md transition-all">
+  <span className="text-sm font-medium text-[#1E3A5F]">Paycheck Calculator</span>
+</Link>
+</div>
+</div>
+
 </div>
 </>
 );
