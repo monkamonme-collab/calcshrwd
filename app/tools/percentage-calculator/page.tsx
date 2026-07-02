@@ -37,7 +37,13 @@ export default function PercentageCalculator() {
   return (
     <>
       <div className="max-w-xl mx-auto px-6 py-10">
-        <nav className="text-sm text-slate-400 mb-6">
+        <script
+type="application/ld+json"
+dangerouslySetInnerHTML={{
+__html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calcshrwd.com/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.calcshrwd.com/tools"}, {"@type": "ListItem", "position": 3, "name": "Percentage Calculator", "item": "https://www.calcshrwd.com/tools/percentage-calculator"}]})
+}}
+/>
+<nav className="text-sm text-slate-400 mb-6">
           <Link href="/" className="hover:text-[#00B4A6]">Home</Link>{" / "}
           <Link href="/tools" className="hover:text-[#00B4A6]">Tools</Link>{" / "}
           <span className="text-slate-600">Percentage Calculator</span>
@@ -124,7 +130,7 @@ export default function PercentageCalculator() {
             { q: "How do I calculate the percentage of a number?", a: "To find X% of a number, multiply the number by X and divide by 100. For example, 20% of 150 = 150 × 20 ÷ 100 = 30." },
             { q: "How do I find what percentage one number is of another?", a: "Divide the part by the whole, then multiply by 100. For example, 30 is what percent of 150? → (30 ÷ 150) × 100 = 20%." },
             { q: "How do I calculate percentage increase or decrease?", a: "Percentage change = ((New Value − Old Value) ÷ Old Value) × 100. A positive result is an increase; a negative result is a decrease." },
-            { q: "What is 20% of 100?", a: "20% of 100 is 20. You can find this by multiplying 100 × 0.20 = 20." },
+            { q: "What is 20% of 100?", a: "20% of 100 is 20. You can find this by multiplying 100 × 0.20 = 20%." },
             { q: "How do I calculate a tip percentage?", a: "Multiply the bill amount by the tip percentage divided by 100. For an 18% tip on a $50 bill: $50 × 0.18 = $9." },
             { q: "What is the percentage difference between two numbers?", a: "Percentage difference = |Value1 − Value2| ÷ ((Value1 + Value2) ÷ 2) × 100. This is used when neither value is a reference point." }
           ].map(({ q, a }) => (
@@ -140,4 +146,4 @@ export default function PercentageCalculator() {
       </div>
     </>
   );
-      }
+}
