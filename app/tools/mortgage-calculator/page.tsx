@@ -58,7 +58,13 @@ export default function MortgageCalculator() {
   return (
     <>
       <div className="max-w-xl mx-auto px-6 py-10">
-        <nav className="text-sm text-slate-400 mb-6">
+        <script
+type="application/ld+json"
+dangerouslySetInnerHTML={{
+__html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calcshrwd.com/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.calcshrwd.com/tools"}, {"@type": "ListItem", "position": 3, "name": "Mortgage Calculator", "item": "https://www.calcshrwd.com/tools/mortgage-calculator"}]})
+}}
+/>
+<nav className="text-sm text-slate-400 mb-6">
           <Link href="/" className="hover:text-[#00B4A6]">Home</Link>{" / "}
           <Link href="/tools" className="hover:text-[#00B4A6]">Tools</Link>{" / "}
           <span className="text-slate-600">Mortgage Calculator</span>
@@ -164,4 +170,4 @@ export default function MortgageCalculator() {
       </div>
     </>
   );
-          }
+}
