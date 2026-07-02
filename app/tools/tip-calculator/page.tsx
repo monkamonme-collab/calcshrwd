@@ -18,7 +18,13 @@ export default function TipCalculator() {
     <>
       <div className="max-w-2xl mx-auto px-6 py-10">
         {/* Breadcrumb */}
-        <nav className="text-sm text-slate-400 mb-6">
+        <script
+type="application/ld+json"
+dangerouslySetInnerHTML={{
+__html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calcshrwd.com/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.calcshrwd.com/tools"}, {"@type": "ListItem", "position": 3, "name": "Tip Calculator", "item": "https://www.calcshrwd.com/tools/tip-calculator"}]})
+}}
+/>
+<nav className="text-sm text-slate-400 mb-6">
           <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
           {" / "}
           <Link href="/tools" className="hover:text-[#00B4A6]">Tools</Link>
@@ -40,7 +46,6 @@ export default function TipCalculator() {
         </p>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-6">
-          {/* Bill Amount */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               Bill Amount ($)
@@ -54,7 +59,6 @@ export default function TipCalculator() {
             />
           </div>
 
-          {/* Tip Percentage */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
               Tip Percentage: <span className="text-[#00B4A6] font-bold">{tipPct}%</span>
@@ -84,7 +88,6 @@ export default function TipCalculator() {
             />
           </div>
 
-          {/* Number of People */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">
               Split Between (people)
@@ -99,7 +102,6 @@ export default function TipCalculator() {
           </div>
         </div>
 
-        {/* Results */}
         {billNum > 0 && (
           <div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4">
             <div>
@@ -125,7 +127,6 @@ export default function TipCalculator() {
           </div>
         )}
 
-        {/* Related Article */}
         <div className="mt-10 border-t border-slate-100 pt-8">
           <h2 className="text-lg font-semibold text-[#1E3A5F] mb-3">Learn More</h2>
           <Link
@@ -181,4 +182,4 @@ export default function TipCalculator() {
       </div>
     </>
   );
-              }
+}
