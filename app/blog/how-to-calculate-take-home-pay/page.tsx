@@ -268,7 +268,7 @@ export default function HowToCalculateTakeHomePayArticle() {
               ["Medicare (1.45%)", "-$56", "$2,472", false],
               ["Oregon state tax (~8.75%)", "-$288", "$2,184", false],
               ["Take-Home Pay", "", "$2,184", true],
-            ].map(([item, deduct, cumul, bold]) => (
+            ].map(([item, deduct, cumul, bold]: [string, string, string, boolean]) => (
               <tr key={item} className={`border-b ${bold ? "font-bold bg-[#E8F8F7]" : ""}`}>
                 <td className="px-4 py-2">{item}</td>
                 <td className="px-4 py-2 text-right text-red-600">{deduct}</td>
