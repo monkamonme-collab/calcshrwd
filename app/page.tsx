@@ -53,7 +53,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-6 py-14">
         <h2 className="text-2xl font-bold text-[#1E3A5F] mb-8 text-center">Popular Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tools.map((tool) => (
+          {tools.map((tool, index) => (
             <Link key={tool.href} href={tool.href}
               className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md hover:border-[#00B4A6] transition-all group">
               <div className="w-full h-32 overflow-hidden bg-slate-100">
@@ -62,7 +62,8 @@ export default function HomePage() {
                   alt={tool.title}
                   width={400}
                   height={128}
-                  loading="lazy"
+                  loading={index < 4 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : "auto"}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
