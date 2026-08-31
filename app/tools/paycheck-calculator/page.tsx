@@ -19,6 +19,10 @@ const STATE_TAXES: Record<string, number> = {
   Wyoming: 0,
 };
 
+const TAX_YEAR = 2026;
+const STANDARD_DEDUCTION = { single: 16100, married: 32200 };
+const SOCIAL_SECURITY_WAGE_BASE = 184500;
+
 const faqs = [
   {
     q: "What is the difference between gross pay and net pay?",
@@ -26,11 +30,11 @@ const faqs = [
   },
   {
     q: "How is federal income tax calculated on a paycheck?",
-    a: "Federal income tax is calculated using a progressive bracket system. For 2024, single filers pay 10% on the first $11,925, 12% on income up to $48,475, 22% up to $103,350, and higher rates beyond that. Married filers have wider brackets. Your employer withholds a prorated share of your estimated annual tax each pay period."
+    a: "Federal income tax is calculated using progressive 2026 tax brackets after this calculator applies the standard deduction for the selected filing status. Actual payroll withholding can differ because Form W-4 elections, credits, and other deductions are not modeled."
   },
   {
     q: "What is FICA and how much is it?",
-    a: "FICA (Federal Insurance Contributions Act) covers Social Security and Medicare. Employees pay 6.2% of gross wages toward Social Security (up to the annual wage base of $176,100 in 2024) and 1.45% toward Medicare with no earnings cap. Together, FICA takes 7.65% from your paycheck, with your employer matching that amount."
+    a: "FICA covers Social Security and Medicare. In 2026, employees pay 6.2% of wages toward Social Security up to $184,500, plus 1.45% toward Medicare. This estimate does not include the Additional Medicare Tax that may apply at higher incomes."
   },
   {
     q: "Does a 401(k) contribution reduce my taxes?",
@@ -42,7 +46,7 @@ const faqs = [
   },
   {
     q: "How accurate is this paycheck calculator?",
-    a: "This calculator uses 2024 federal tax brackets and state marginal rates. It provides a close estimate for most salaried and hourly employees. However, it does not account for pre-tax health insurance premiums, FSA contributions, local city taxes, additional Medicare tax (0.9% for high earners), or itemized deductions. For exact withholding, refer to your pay stub or consult a tax professional."
+    a: "This calculator uses 2026 federal brackets, the standard deduction, and the 2026 Social Security wage base. State tax is a simplified estimate, not a state withholding calculation. It does not model W-4 elections, local taxes, pre-tax health insurance, FSA/HSA contributions, tax credits, itemized deductions, or Additional Medicare Tax. Check your pay stub or consult a tax professional for exact withholding."
   }
 ];
 
@@ -66,12 +70,12 @@ export default function PaycheckCalculator() {
   const grossPerPeriod = annualGross / periods;
 
   const retirementAmt = (annualGross * (parseFloat(retirement401k) || 0)) / 100;
-  const federalTaxableIncome = Math.max(0, annualGross - retirementAmt);
+  const federalTaxableIncome = Math.max(0, annualGross - retirementAmt - STANDARD_DEDUCTION[filingStatus]);
 
   const federalTax = (() => {
     const brackets = filingStatus === "single"
-      ? [[11925, 0.10], [48475, 0.12], [103350, 0.22], [197300, 0.24], [250525, 0.32], [626350, 0.35], [Infinity, 0.37]]
-      : [[23850, 0.10], [96950, 0.12], [206700, 0.22], [394600, 0.24], [501050, 0.32], [751600, 0.35], [Infinity, 0.37]];
+      ? [[12400, 0.10], [50400, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]]
+      : [[24800, 0.10], [100800, 0.12], [211400, 0.22], [403550, 0.24], [512450, 0.32], [768700, 0.35], [Infinity, 0.37]];
     let tax = 0;
     let prev = 0;
     for (const [limit, rate] of brackets) {
@@ -83,7 +87,7 @@ export default function PaycheckCalculator() {
   })();
 
   const stateTax = federalTaxableIncome * (STATE_TAXES[state] / 100);
-  const socialSecurity = Math.min(annualGross, 176100) * 0.062;
+  const socialSecurity = Math.min(annualGross, SOCIAL_SECURITY_WAGE_BASE) * 0.062;
   const medicare = annualGross * 0.0145;
   const totalDeductions = federalTax + stateTax + socialSecurity + medicare + retirementAmt;
   const annualNet = annualGross - totalDeductions;
@@ -110,7 +114,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
               </div>
                       <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Paycheck Calculator</h1>
         <p className="text-slate-500 mb-8">
-          Estimate your take-home pay after federal taxes, state taxes, and FICA deductions.
+          Estimate your take-home pay using 2026 federal tax data, a standard deduction, and simplified state tax assumptions.
         </p>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
@@ -210,7 +214,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
               <p className="font-semibold text-[#1E3A5F] mb-3">Annual Deductions Breakdown</p>
               {[
                 ["Federal Income Tax", federalTax],
-                ["State Income Tax", stateTax],
+                ["Estimated State Income Tax (simplified)", stateTax],
                 ["Social Security (6.2%)", socialSecurity],
                 ["Medicare (1.45%)", medicare],
                 ...(retirementAmt > 0 ? [["401(k) Contribution", retirementAmt]] : []),
@@ -224,12 +228,17 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
         )}
 
+        <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+          <p className="font-semibold">Estimate and methodology</p>
+          <p className="mt-1">Federal calculations use {TAX_YEAR} IRS brackets and the standard deduction. State tax uses a single illustrative rate and is not a state-specific withholding calculation. This tool is for planning only, not tax advice.</p>
+        </div>
+
         <div className="mt-10 border-t border-slate-100 pt-8">
           <h2 className="text-lg font-semibold text-[#1E3A5F] mb-3">Learn More</h2>
-          <Link href="/blog/how-to-read-your-paycheck"
+          <Link href="/blog/how-to-calculate-take-home-pay"
             className="block bg-white border border-slate-100 rounded-lg p-4 hover:border-[#00B4A6] transition-colors">
-            <p className="font-medium text-slate-700">How to Read Your Paycheck and Pay Stub</p>
-            <p className="text-sm text-slate-400 mt-1">Understand every line item on your paycheck — gross pay, deductions, and net pay explained.</p>
+            <p className="font-medium text-slate-700">How to Calculate Take-Home Pay</p>
+            <p className="text-sm text-slate-400 mt-1">Learn how gross pay, deductions, and net pay fit together.</p>
           </Link>
         </div>
       </div>
