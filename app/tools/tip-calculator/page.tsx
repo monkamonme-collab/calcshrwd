@@ -66,9 +66,9 @@ export default function TipCalculator() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
         </div>
-        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Tip Calculator</h1>
+        <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Tip Calculator: Calculate and Split a Restaurant Tip</h1>
         <p className="text-slate-500 mb-8">
-          Calculate the right tip amount and split the bill among your group instantly.
+          Use this free tip calculator to calculate a restaurant tip, split a bill, and see what each person pays. Choose a percentage or set your own.
         </p>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-6">
