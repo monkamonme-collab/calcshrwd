@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "how-to-calculate-gpa",
     "how-to-calculate-take-home-pay",
     "tipping-guide-usa",
+    "how-to-calculate-a-tip",
     "understanding-loan-interest",
     "what-is-bmi",
     "how-to-calculate-grade",
