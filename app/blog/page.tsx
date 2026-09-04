@@ -9,6 +9,14 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: "how-to-calculate-a-tip",
+    title: "How to Calculate a Tip: Formula, Examples, and Bill Splitting",
+    description:
+      "A simple tip formula, 15%, 18%, and 20% examples, plus an easy way to split the total bill.",
+    readTime: "5 min read",
+    tool: { label: "Tip Calculator", href: "/tools/tip-calculator" },
+  },
+  {
     slug: "how-to-calculate-take-home-pay",
     title: "How to Calculate Your Take-Home Pay",
     description:
