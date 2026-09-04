@@ -20,7 +20,7 @@ const faqItems = [
   },
   {
     q: "What are FICA taxes and how much do I pay?",
-    a: "FICA (Federal Insurance Contributions Act) taxes fund Social Security and Medicare. You pay 6.2% for Social Security on wages up to $168,600 (2024 wage base) and 1.45% for Medicare on all wages. If you earn over $200,000, an additional 0.9% Medicare surtax applies. Your employer matches your 6.2% and 1.45%, making the total FICA burden 15.3% shared between you and your employer.",
+    a: "FICA (Federal Insurance Contributions Act) taxes fund Social Security and Medicare. You pay 6.2% for Social Security on wages up to $184,500 (2026 wage base) and 1.45% for Medicare on all wages. If you earn over $200,000, an additional 0.9% Medicare surtax applies. Your employer matches your 6.2% and 1.45%, making the total FICA burden 15.3% shared between you and your employer.",
   },
   {
     q: "How do pre-tax deductions reduce my take-home pay?",
@@ -70,7 +70,7 @@ export default function HowToCalculateTakeHomePayArticle() {
             "headline": "How to Calculate Take-Home Pay",
             "description": "A step-by-step guide to calculating net pay after federal tax, FICA, state taxes, and deductions.",
             "url": "https://www.calcshrwd.com/blog/how-to-calculate-take-home-pay",
-            "dateModified": "2026-07-02",
+            "dateModified": "2026-09-05",
             "publisher": { "@type": "Organization", "name": "CalcShrwd", "url": "https://www.calcshrwd.com" },
           }),
         }}
@@ -99,7 +99,7 @@ export default function HowToCalculateTakeHomePayArticle() {
       <h1 className="text-3xl font-bold text-[#1E3A5F] mb-3">
         How to Calculate Take-Home Pay
       </h1>
-      <p className="text-slate-400 text-sm mb-8">Updated July 2026 · 8 min read</p>
+      <p className="text-slate-400 text-sm mb-8">Updated September 2026 · 8 min read</p>
 
       <p className="text-slate-600 mb-6">
         Your gross salary is the number on your offer letter. Your take-home pay — also called <strong>net pay</strong> — is what actually lands in your bank account after the government and your benefits plan have had their share. For most American workers, the gap is 25–40% of gross. Understanding each deduction gives you real control over your budget and your W-4 elections.
@@ -150,11 +150,11 @@ export default function HowToCalculateTakeHomePayArticle() {
         Pre-tax deductions reduce your <strong>taxable wages</strong> — not just your take-home. Common pre-tax deductions:
       </p>
       <ul className="list-disc pl-6 text-slate-600 mb-4 space-y-2">
-        <li><strong>Traditional 401(k) / 403(b):</strong> Up to $23,000 (2024); $30,500 if age 50+. Reduces federal and state taxable income (not FICA wages).</li>
-        <li><strong>Health Savings Account (HSA):</strong> $4,150 individual / $8,300 family (2024). Reduces federal income tax AND FICA — triple tax benefit.</li>
-        <li><strong>Flexible Spending Account (FSA):</strong> Up to $3,200 for healthcare FSA. Use-it-or-lose-it each year.</li>
+        <li><strong>Traditional 401(k) / 403(b):</strong> Up to $24,500 in elective deferrals for 2026; catch-up limits depend on age and plan rules. Reduces federal and state taxable income (not FICA wages).</li>
+        <li><strong>Health Savings Account (HSA):</strong> $4,400 self-only / $8,750 family for 2026. Reduces federal income tax AND FICA — triple tax benefit.</li>
+        <li><strong>Flexible Spending Account (FSA):</strong> Up to $3,400 for a healthcare FSA in 2026. Use-it-or-lose-it each year.</li>
         <li><strong>Employer health, dental, vision premiums:</strong> Your share of premiums under a Section 125 cafeteria plan is pre-tax.</li>
-        <li><strong>Commuter benefits:</strong> Up to $315/month (2024) for transit or parking.</li>
+        <li><strong>Commuter benefits:</strong> Up to $340/month in 2026 for transit or parking.</li>
       </ul>
       <p className="text-slate-600 mb-6">
         After subtracting pre-tax deductions from gross pay, you have your <strong>taxable wages</strong> — the number used to calculate income tax withholding.
@@ -168,19 +168,19 @@ export default function HowToCalculateTakeHomePayArticle() {
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="bg-[#1E3A5F] text-white">
-              <th className="px-4 py-2 text-left">2024 Tax Bracket (Single)</th>
+              <th className="px-4 py-2 text-left">2026 Tax Bracket (Single)</th>
               <th className="px-4 py-2 text-right">Rate</th>
             </tr>
           </thead>
           <tbody>
             {[
-              ["$0 – $11,600", "10%"],
-              ["$11,601 – $47,150", "12%"],
-              ["$47,151 – $100,525", "22%"],
-              ["$100,526 – $191,950", "24%"],
-              ["$191,951 – $243,725", "32%"],
-              ["$243,726 – $609,350", "35%"],
-              ["Over $609,350", "37%"],
+              ["$0 – $12,400", "10%"],
+              ["$12,401 – $50,400", "12%"],
+              ["$50,401 – $105,700", "22%"],
+              ["$105,701 – $201,775", "24%"],
+              ["$201,776 – $256,225", "32%"],
+              ["$256,226 – $640,600", "35%"],
+              ["Over $640,600", "37%"],
             ].map(([range, rate], i) => (
               <tr key={range} className={`border-b ${i % 2 === 1 ? "bg-slate-50" : ""}`}>
                 <td className="px-4 py-2">{range}</td>
@@ -196,7 +196,7 @@ export default function HowToCalculateTakeHomePayArticle() {
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Step 4: FICA Taxes (Social Security and Medicare)</h2>
       <ul className="list-disc pl-6 text-slate-600 mb-4 space-y-2">
-        <li><strong>Social Security:</strong> 6.2% on wages up to $168,600 (2024 wage base). Stops once you exceed this amount in a calendar year.</li>
+        <li><strong>Social Security:</strong> 6.2% on wages up to $184,500 (2026 wage base). Stops once you exceed this amount in a calendar year.</li>
         <li><strong>Medicare:</strong> 1.45% on ALL wages — no cap.</li>
         <li><strong>Additional Medicare surtax:</strong> 0.9% on wages over $200,000 (single) / $250,000 (married filing jointly).</li>
       </ul>
@@ -287,7 +287,7 @@ export default function HowToCalculateTakeHomePayArticle() {
         <li><strong>Adjust your W-4.</strong> If you get a refund over $1,000, you are over-withholding. A new W-4 with the correct deductions or credits boosts every paycheck immediately.</li>
         <li><strong>Max out your HSA.</strong> HSA contributions reduce federal tax, state tax (in most states), AND FICA — triple tax advantage with indefinite rollover.</li>
         <li><strong>Contribute more to a traditional 401(k).</strong> At 22% federal + 5% state, a $500 contribution only reduces net pay by about $365. The other $135 is tax savings.</li>
-        <li><strong>Use a Dependent Care FSA.</strong> Up to $5,000/year in daycare costs can be paid pre-tax if you have qualifying dependents.</li>
+        <li><strong>Use a Dependent Care FSA.</strong> Up to $7,500/year ($3,750 if married filing separately) can be excluded from income in 2026 when the plan and eligibility rules are met.</li>
         <li><strong>Negotiate benefits over salary.</strong> Employer-paid premiums and matching contributions are often worth more after-tax than an equivalent wage increase.</li>
       </ul>
 
