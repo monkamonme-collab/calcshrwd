@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tipping Guide USA: How Much to Tip in Every Situation",
-  description: "A complete US tipping guide covering restaurants, delivery, hotels, taxis, salons, and more. Includes quick mental math tricks.",
+  description: "A practical US tipping guide for restaurants, delivery, hotels, taxis, salons, and more, with a free tip calculator and quick mental-math methods.",
   alternates: {
     canonical: "https://www.calcshrwd.com/blog/tipping-guide-usa",
   },
@@ -51,8 +51,8 @@ export default function TippingGuideUSAArticle() {
 
       <p className="text-slate-600 mb-6">
         Tipping in the US is customary, not legally required - but in many industries it forms
-        a significant part of workers&apos; income. This guide covers standard tip amounts for
-        the most common service situations so you always know what is expected.
+        a significant part of workers&apos; income. This guide covers typical tip amounts for common
+        service situations. For an exact total or split, use the <Link href="/tools/tip-calculator" className="text-[#008f85] underline">Tip Calculator</Link>.
       </p>
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-4">Tip Reference Table</h2>
