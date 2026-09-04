@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.calcshrwd.com";
-  const now = new Date();
   const tools = [
     "tip-calculator",
     "paycheck-calculator",
@@ -29,12 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "word-count-guide",
   ];
   return [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: base + "/tools", lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: base + "/blog", lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: base + "/about", lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: base + "/privacy-policy", lastModified: now, changeFrequency: "monthly", priority: 0.3 },
-    { url: base + "/terms", lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: base, changeFrequency: "weekly", priority: 1 },
+    { url: base + "/tools", changeFrequency: "weekly", priority: 0.9 },
+    { url: base + "/blog", changeFrequency: "weekly", priority: 0.8 },
+    { url: base + "/about", changeFrequency: "monthly", priority: 0.5 },
+    { url: base + "/privacy-policy", changeFrequency: "monthly", priority: 0.3 },
+    { url: base + "/terms", changeFrequency: "monthly", priority: 0.3 },
     ...tools.map((t) => ({
       url: base + "/tools/" + t,
       lastModified: now,
