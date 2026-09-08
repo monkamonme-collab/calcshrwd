@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "CalcShrwd – Free Online Calculators for Everyday Life",
   description: "Smart, free calculators for Americans — tip, paycheck, GPA, BMI, loan, mortgage, calorie, age, and more.",
+  alternates: { canonical: "https://www.calcshrwd.com/" },
 };
 
 const websiteSchema = {
