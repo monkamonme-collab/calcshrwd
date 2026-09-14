@@ -219,6 +219,15 @@ export default function TipCalculator() {
               Tipping etiquette for restaurants, hotels, rideshare, salons, and more — with mental math tricks.
             </p>
           </Link>
+          <Link
+            href="/blog/how-to-calculate-a-tip"
+            className="mt-3 block bg-white border border-slate-100 rounded-lg p-4 hover:border-[#00B4A6] transition-colors"
+          >
+            <p className="font-medium text-slate-700">How to Calculate a Tip: Formula, Examples, and Bill Splitting</p>
+            <p className="text-sm text-slate-400 mt-1">
+              Learn the tip formula, quick percentage shortcuts, and how to split the final bill.
+            </p>
+          </Link>
         </div>
       </div>
 
