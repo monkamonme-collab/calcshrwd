@@ -16,7 +16,8 @@ const tipData = [
   { service: "Coffee or counter service", range: "Optional", notes: "A tip jar or payment prompt does not make a tip mandatory." },
   { service: "Taxi or rideshare", range: "15–20% for taxis; rideshare varies", notes: "Check the app prompt and local practice for rideshare." },
   { service: "Hotel housekeeping", range: "$2–5 per day", notes: "Leaving it daily can help when staff changes." },
-  { service: "Bellhop or valet", range: "$2–5", notes: "A flat amount is a common reference for the service." },
+  { service: "Bellhop", range: "$2 for the first bag; $1 additional", notes: "A per-bag reference is common for luggage assistance." },
+  { service: "Valet", range: "$2–5", notes: "A flat amount is a common reference when the car is returned." },
   { service: "Hair, salon, or nail service", range: "15–20%", notes: "Ask whether it should be split among people who served you." },
 ];
 
