@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Tip Calculator: Split a Bill & Calculate Tips",
-    description: "Free tip calculator to calculate a restaurant tip, split a bill, and see what each person pays. Includes a US tipping guide and quick 15%, 18%, and 20% tip calculations.",
+    title: "Tip Calculator: Calculate, Split, and Round a Tip",
+    description: "Calculate a tip, add optional tax, choose pre-tax or after-tax tipping, split the bill, and round the tip or total.",
     alternates: {
           canonical: "/tools/tip-calculator",
     },

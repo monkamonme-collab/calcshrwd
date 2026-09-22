@@ -3,22 +3,21 @@ import Link from "next/link";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
-  title: "Tipping Guide USA: Common Ranges for Everyday Services",
+  title: "Tipping Guide USA: How Much to Tip by Service",
   description:
-    "A practical US tipping reference for restaurants, delivery, hotels, rides, salons, and more. See common ranges, service-charge reminders, and a free calculator.",
+    "A practical U.S. tipping guide for restaurants, bars, delivery, hotels, taxis, rideshares, salons, and more, with common reference ranges.",
   alternates: { canonical: "https://www.calcshrwd.com/blog/tipping-guide-usa" },
 };
 
 const tipData = [
-  { service: "Sit-down restaurant", range: "Often 15–20%", notes: "Check the bill for an included service charge." },
-  { service: "Fast casual / counter service", range: "Optional", notes: "Practices vary by location and service." },
-  { service: "Bar", range: "Often $1–2 per drink or a percentage", notes: "Consider the service and local norms." },
-  { service: "Coffee shop", range: "Optional", notes: "A tip jar does not necessarily mean a tip is expected." },
-  { service: "Food delivery", range: "Often a percentage or flat amount", notes: "Distance, weather, and order size can affect the choice." },
-  { service: "Rideshare or taxi", range: "Optional; common ranges vary", notes: "Review in-app prompts and local practice." },
-  { service: "Hotel housekeeping", range: "Varies", notes: "Some guests leave a daily amount; policies differ." },
-  { service: "Salon, barber, or nail service", range: "Often a percentage", notes: "Check whether a service fee is already included." },
-  { service: "Mover or valet", range: "Varies", notes: "A flat amount is common in some locations." },
+  { service: "Sit-down restaurant", range: "15–20%", notes: "A common reference is the pre-tax bill; check for a service charge." },
+  { service: "Bar", range: "$1–2 per drink or 15–20%", notes: "The tab percentage can be easier for several drinks." },
+  { service: "Food delivery", range: "10–15% or $2–5", notes: "Order size and delivery conditions can affect the choice." },
+  { service: "Coffee or counter service", range: "Optional", notes: "A tip jar or payment prompt does not make a tip mandatory." },
+  { service: "Taxi or rideshare", range: "15–20% for taxis; rideshare varies", notes: "Check the app prompt and local practice for rideshare." },
+  { service: "Hotel housekeeping", range: "$2–5 per day", notes: "Leaving it daily can help when staff changes." },
+  { service: "Bellhop or valet", range: "$2–5", notes: "A flat amount is a common reference for the service." },
+  { service: "Hair, salon, or nail service", range: "15–20%", notes: "Ask whether it should be split among people who served you." },
 ];
 
 const faqs = [
@@ -26,6 +25,11 @@ const faqs = [
     question: "Is there one correct tip percentage in the US?",
     answer:
       "No. Tipping customs differ by service, city, and venue. The ranges in this guide are common references, not rules or legal requirements.",
+  },
+  {
+    question: "What is the difference between a service charge and a tip?",
+    answer:
+      "A service charge or automatic gratuity is a listed charge on the bill. Check what it covers before deciding whether to add an optional additional tip.",
   },
   {
     question: "Should I tip before or after tax?",
@@ -52,7 +56,7 @@ export default function TippingGuideUSAArticle() {
 
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
-      <ArticleJsonLd headline="Tipping Guide USA: Common Ranges for Everyday Services" description="A practical US tipping reference for restaurants, delivery, hotels, rides, salons, and more." url="https://www.calcshrwd.com/blog/tipping-guide-usa" />
+      <ArticleJsonLd headline="Tipping Guide USA: How Much to Tip by Service" description="A practical U.S. tipping guide for restaurants, delivery, hotels, rides, salons, and more." url="https://www.calcshrwd.com/blog/tipping-guide-usa" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <nav aria-label="Breadcrumb" className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
@@ -63,17 +67,17 @@ export default function TippingGuideUSAArticle() {
       </nav>
 
       <h1 className="text-3xl font-bold text-[#1E3A5F] mb-3">
-        Tipping Guide USA: Common Ranges for Everyday Services
+        Tipping Guide USA: How Much to Tip by Service
       </h1>
       <p className="text-slate-400 text-sm mb-8">Updated September 2026 · 4 min read</p>
 
       <p className="text-slate-600 mb-6">
         Tipping practices in the United States are shaped by local custom, venue policy, and the kind of service.
-        This is a practical reference, not a mandatory rulebook. For step-by-step percentages, examples, and bill
-        splitting, see <Link href="/blog/how-to-calculate-a-tip" className="text-[#008f85] underline">How to Calculate a Tip</Link>.
+        This is a practical reference, not a mandatory rulebook. For the arithmetic behind any percentage, examples,
+        and mental math, <Link href="/blog/how-to-calculate-a-tip" className="text-[#008f85] underline">learn how to calculate a tip</Link>.
       </p>
 
-      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-4">Common reference ranges</h2>
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-4">Common U.S. tipping reference ranges</h2>
       <div className="overflow-x-auto mb-8">
         <table className="w-full text-sm border-collapse">
           <thead>
@@ -94,22 +98,18 @@ export default function TippingGuideUSAArticle() {
           </tbody>
         </table>
       </div>
-      <p className="-mt-4 mb-8 text-sm text-slate-500">Reference: <a className="underline hover:text-[#00B4A6]" href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. Tipping practices and service charges vary by location and situation.</p>
+      <p className="-mt-4 mb-8 text-sm text-slate-500">Reference: <a className="underline hover:text-[#00B4A6]" href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. These are common references, not legal requirements; customs and service charges vary by location and situation.</p>
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Before you pay</h2>
       <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">
         <li>Check whether gratuity, service, delivery, or resort fees are already included.</li>
-        <li>Use the subtotal or final total that matches your preference; both are commonly used.</li>
-        <li>For a group, agree whether shared items and fees are split evenly before calculating the tip.</li>
+        <li>Decide whether you are tipping on the pre-tax subtotal or the after-tax total.</li>
+        <li>For a group, agree whether shared items and fees are split evenly before calculating an optional tip.</li>
         <li>When in doubt, ask the venue how a listed charge is handled.</li>
       </ul>
 
-      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Quick tip math</h2>
-      <p className="text-slate-600 mb-6">
-        To estimate 20%, find 10% of the bill by moving the decimal one place left, then double it. For a 15%
-        estimate, add half of the 10% amount. A calculator is useful for custom percentages, exact totals, and
-        uneven group splits.
-      </p>
+      <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">When a range may differ</h2>
+      <p className="text-slate-600 mb-6">The service, location, included charges, and the way a business handles tips can all affect the choice. If a service charge or automatic gratuity appears on the bill, read the description before adding another amount.</p>
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Frequently asked questions</h2>
       <div className="text-slate-600 mb-8">
@@ -122,12 +122,12 @@ export default function TippingGuideUSAArticle() {
       </div>
 
       <div className="bg-[#E8F8F7] border border-[#00B4A6] rounded-lg p-5">
-        <h2 className="text-lg font-bold text-[#1E3A5F] mb-2">Calculate the exact total</h2>
+          <h2 className="text-lg font-bold text-[#1E3A5F] mb-2">Calculate your tip</h2>
         <p className="text-slate-600 mb-3">
           Enter the bill, choose a percentage, and see the tip, total, and per-person split together.
         </p>
         <Link href="/tools/tip-calculator" className="inline-block bg-[#00B4A6] text-white font-semibold px-5 py-2 rounded hover:bg-[#009d90] transition-colors">
-          Use the Tip Calculator
+          Calculate your tip
         </Link>
       </div>
     </article>

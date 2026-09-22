@@ -3,9 +3,9 @@ import Link from "next/link";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
-  title: "How to Calculate a Tip: Formula, Examples & Bill Splitting",
+  title: "How to Calculate a Tip: Formula, Tip Math & Examples",
   description:
-    "Learn how to calculate a tip with a simple formula, quick 15%, 18%, and 20% examples, and an easy way to split the total bill.",
+    "Learn the tip formula, mental math for 10%, 15%, 18%, 20%, and 25%, plus worked examples and bill-splitting tips.",
   alternates: {
     canonical: "https://www.calcshrwd.com/blog/how-to-calculate-a-tip",
   },
@@ -42,7 +42,7 @@ export default function HowToCalculateATipPage() {
 
   return (
     <main className="bg-white">
-      <ArticleJsonLd headline="How to Calculate a Tip: Formula, Examples & Bill Splitting" description="Learn how to calculate a tip with a simple formula, quick examples, and an easy way to split the total bill." url="https://www.calcshrwd.com/blog/how-to-calculate-a-tip" />
+      <ArticleJsonLd headline="How to Calculate a Tip: Formula, Tip Math & Examples" description="Learn the tip formula, mental math for common percentages, and worked examples." url="https://www.calcshrwd.com/blog/how-to-calculate-a-tip" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -59,11 +59,10 @@ export default function HowToCalculateATipPage() {
         <header>
           <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">Money basics</p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            How to Calculate a Tip: A Simple Formula, Examples, and Bill-Splitting Guide
+            How to Calculate a Tip: Formula, Tip Math, and Examples
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            Tip math is straightforward once you have one reliable formula. Use this guide for quick percentages,
-            everyday restaurant bills, and splitting a total with friends.
+            Use one simple formula to calculate any tip, then apply quick mental-math methods when you do not have a calculator nearby.
           </p>
           <p className="mt-4 text-sm text-slate-500">Updated September 5, 2026 · 5 min read</p>
         </header>
@@ -87,28 +86,30 @@ export default function HowToCalculateATipPage() {
             Add the tip amount back to the bill to get the final total.
           </p>
 
-          <h2>15%, 18%, and 20% examples</h2>
+          <h2>10%, 15%, 18%, 20%, and 25% examples</h2>
           <p>
             Suppose the bill is $48.00. Here is what common percentage choices look like:
           </p>
           <ul>
+            <li><strong>10%:</strong> $48 × 0.10 = $4.80 tip; final total $52.80.</li>
             <li><strong>15%:</strong> $48 × 0.15 = $7.20 tip; final total $55.20.</li>
             <li><strong>18%:</strong> $48 × 0.18 = $8.64 tip; final total $56.64.</li>
             <li><strong>20%:</strong> $48 × 0.20 = $9.60 tip; final total $57.60.</li>
+            <li><strong>25%:</strong> $48 × 0.25 = $12.00 tip; final total $60.00.</li>
           </ul>
           <p>
             There is no universal percentage that fits every place or situation. Check the bill for an included service
             charge, and choose an amount that makes sense for your local customs and experience.
           </p>
 
-          <h2>Fast mental math</h2>
+          <h2>How to calculate a tip without a calculator</h2>
           <p>
-            To estimate 20%, find 10% and double it. On a $48 bill, moving the decimal one place left gives $4.80;
-            doubling it gives $9.60. For 15%, take 10% and add half of that amount: $4.80 + $2.40 = $7.20.
+            To find 10%, move the decimal one place left. On a $48 bill, that is $4.80. Double it for 20%, or add
+            half of it for 15%. For 25%, find 10%, double it, then add half of the 10% amount.
           </p>
           <p>
-            Rounding the bill first can make this easier. A $47.60 bill is close to $48, so a 20% tip is roughly $9.60.
-            Use the exact total when you are ready to pay if precision matters.
+            The decimal method is useful for exact totals; the percentage method is useful for a quick estimate. Rounding
+            the bill first can make mental math easier, then you can use the exact total before paying if precision matters.
           </p>
 
           <h2>How to split a bill with a tip</h2>
@@ -129,7 +130,15 @@ export default function HowToCalculateATipPage() {
             together so you can check the numbers before paying.
           </p>
 
-          <p className="text-sm text-slate-500">For general U.S. etiquette context, see <a href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. Customs and included service charges can vary.</p>
+          <h2>Common tip math mistakes</h2>
+          <ul>
+            <li>Using 20 instead of 0.20 when multiplying a bill by 20%.</li>
+            <li>Forgetting to add the tip back to the bill when finding the final total.</li>
+            <li>Adding another tip when the bill already includes a gratuity or service charge.</li>
+            <li>Dividing the bill before agreeing how shared items, tax, and the tip should be handled.</li>
+          </ul>
+
+          <p className="text-sm text-slate-500">Need help choosing a percentage for a particular service? See the <Link href="/blog/tipping-guide-usa">U.S. tipping guide</Link>. Customs and included service charges can vary.</p>
 
           <h2>Frequently asked questions</h2>
           {faqs.map((faq) => (
