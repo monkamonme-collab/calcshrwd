@@ -81,7 +81,9 @@ export default function WordCounter() {
           Paste or type your text to instantly count words, characters, sentences, and estimate reading time.
         </p>
 
+        <label htmlFor="word-counter-text" className="sr-only">Text to count</label>
         <textarea
+          id="word-counter-text"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste or type your text here..."
@@ -116,7 +118,9 @@ export default function WordCounter() {
 
         <div className="mt-4 flex items-center gap-3 bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
           <span className="text-sm text-slate-600">Reading speed:</span>
+          <label htmlFor="word-counter-wpm" className="sr-only">Reading speed in words per minute</label>
           <input
+            id="word-counter-wpm"
             type="number"
             value={wpm}
             onChange={(e) => setWpm(e.target.value)}

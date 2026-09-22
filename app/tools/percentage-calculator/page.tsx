@@ -60,7 +60,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Calculator Type</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Calculator Type</p>
             <div className="flex flex-col gap-2">
               {modes.map((m) => (
                 <button key={m.key} onClick={() => { setMode(m.key); setA(""); setB(""); }}
@@ -72,15 +72,15 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">{current.aLabel}</label>
-            <input type="number" value={a} onChange={(e) => setA(e.target.value)}
+            <label htmlFor="percentage-a" className="block text-sm font-medium text-slate-700 mb-1">{current.aLabel}</label>
+            <input id="percentage-a" type="number" value={a} onChange={(e) => setA(e.target.value)}
               placeholder="e.g. 20"
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">{current.bLabel}</label>
-            <input type="number" value={b} onChange={(e) => setB(e.target.value)}
+            <label htmlFor="percentage-b" className="block text-sm font-medium text-slate-700 mb-1">{current.bLabel}</label>
+            <input id="percentage-b" type="number" value={b} onChange={(e) => setB(e.target.value)}
               placeholder="e.g. 150"
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
@@ -94,7 +94,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           )}
 
           {result && (
-            <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
+            <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center" aria-live="polite" aria-atomic="true">
               <p className="text-slate-300 text-sm mb-1">{result.label}</p>
               <p className="text-3xl font-bold text-[#00B4A6]">
                 {result.value.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 4 })}

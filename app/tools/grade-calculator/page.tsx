@@ -92,18 +92,22 @@ Enter your assignments, tests, and their weights to calculate your weighted fina
 <div className="space-y-2">
 {items.map((r, i) => (
 <div key={i} className="grid grid-cols-12 gap-2 items-center">
-<input value={r.name} onChange={(e) => update(i, "name", e.target.value)}
+<label htmlFor={`grade-name-${i}`} className="sr-only">Assignment {i + 1}</label>
+<input id={`grade-name-${i}`} value={r.name} onChange={(e) => update(i, "name", e.target.value)}
 placeholder={`Item ${i + 1}`}
 className="col-span-4 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<input type="number" value={r.score} onChange={(e) => update(i, "score", e.target.value)}
+<label htmlFor={`grade-score-${i}`} className="sr-only">Score for assignment {i + 1}</label>
+<input id={`grade-score-${i}`} type="number" value={r.score} onChange={(e) => update(i, "score", e.target.value)}
 placeholder="e.g. 85"
 className="col-span-2 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<input type="number" value={r.total} onChange={(e) => update(i, "total", e.target.value)}
+<label htmlFor={`grade-total-${i}`} className="sr-only">Possible points for assignment {i + 1}</label>
+<input id={`grade-total-${i}`} type="number" value={r.total} onChange={(e) => update(i, "total", e.target.value)}
 className="col-span-2 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<input type="number" value={r.weight} onChange={(e) => update(i, "weight", e.target.value)}
+<label htmlFor={`grade-weight-${i}`} className="sr-only">Weight for assignment {i + 1}</label>
+<input id={`grade-weight-${i}`} type="number" value={r.weight} onChange={(e) => update(i, "weight", e.target.value)}
 placeholder="e.g. 20"
 className="col-span-3 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<button onClick={() => removeRow(i)} className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">x</button>
+<button type="button" aria-label={`Remove assignment ${i + 1}`} onClick={() => removeRow(i)} className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">x</button>
 </div>
 ))}
 </div>
@@ -118,7 +122,7 @@ Total weight: {totalWeight}%{totalWeight !== 100 ? " (should be 100%)" : ""}
 </div>
 
 {isComplete && (
-<div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-5 grid grid-cols-2 gap-4 text-center">
+<div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-5 grid grid-cols-2 gap-4 text-center" aria-live="polite" aria-atomic="true">
 <div>
 <p className="text-slate-300 text-sm">Weighted Grade</p>
 <p className="text-4xl font-bold text-[#00B4A6]">{finalGrade.toFixed(1)}%</p>

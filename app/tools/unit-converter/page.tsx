@@ -177,9 +177,10 @@ export default function UnitConverter() {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
           {/* From */}
           <div className="mb-4">
-            <label className="block text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">From</label>
+            <label htmlFor="unit-input-value" className="block text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">From</label>
             <div className="flex gap-3">
               <input
+                id="unit-input-value"
                 type="number"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)}
@@ -187,6 +188,8 @@ export default function UnitConverter() {
                 placeholder="Enter value"
               />
               <select
+                id="unit-from"
+                aria-label="From unit"
                 value={fromUnit}
                 onChange={e => setFromUnit(e.target.value)}
                 className="border border-slate-200 rounded-xl px-3 py-3 focus:outline-none focus:border-[#00B4A6] text-slate-700 bg-white"
@@ -211,12 +214,13 @@ export default function UnitConverter() {
 
           {/* To */}
           <div>
-            <label className="block text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">To</label>
+            <label htmlFor="unit-to" className="block text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">To</label>
             <div className="flex gap-3">
-              <div className="flex-1 border border-slate-100 rounded-xl px-4 py-3 bg-slate-50 text-lg font-semibold text-[#1E3A5F]">
+              <div className="flex-1 border border-slate-100 rounded-xl px-4 py-3 bg-slate-50 text-lg font-semibold text-[#1E3A5F]" aria-live="polite" aria-atomic="true">
                 {isNaN(result) ? "—" : formatResult(result)}
               </div>
               <select
+                id="unit-to"
                 value={toUnit}
                 onChange={e => setToUnit(e.target.value)}
                 className="border border-slate-200 rounded-xl px-3 py-3 focus:outline-none focus:border-[#00B4A6] text-slate-700 bg-white"

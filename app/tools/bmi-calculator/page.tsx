@@ -85,7 +85,7 @@ export default function BMICalculator() {
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Units</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Units</p>
             <div className="flex gap-2">
               {(["imperial", "metric"] as Unit[]).map((u) => (
                 <button
@@ -104,11 +104,13 @@ export default function BMICalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Height</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Height</p>
             {unit === "imperial" ? (
               <div className="flex gap-3">
                 <div className="flex-1">
                   <input
+                    id="bmi-height-feet"
+                    aria-label="Height in feet"
                     type="number"
                     value={feet}
                     onChange={(e) => setFeet(e.target.value)}
@@ -118,6 +120,8 @@ export default function BMICalculator() {
                 </div>
                 <div className="flex-1">
                   <input
+                    id="bmi-height-inches"
+                    aria-label="Height in inches"
                     type="number"
                     value={inches}
                     onChange={(e) => setInches(e.target.value)}
@@ -130,6 +134,8 @@ export default function BMICalculator() {
               </div>
             ) : (
               <input
+                id="bmi-height-cm"
+                aria-label="Height in centimetres"
                 type="number"
                 value={cm}
                 onChange={(e) => setCm(e.target.value)}
@@ -140,10 +146,11 @@ export default function BMICalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="bmi-weight" className="block text-sm font-medium text-slate-700 mb-1">
               Weight ({unit === "imperial" ? "lbs" : "kg"})
             </label>
             <input
+              id="bmi-weight"
               type="number"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
@@ -153,7 +160,7 @@ export default function BMICalculator() {
           </div>
 
           {bmi && cat ? (
-            <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
+            <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center" aria-live="polite" aria-atomic="true">
               <p className="text-slate-300 text-sm mb-1">Your BMI</p>
               <p className={`text-5xl font-bold ${cat.color}`}>{bmi.toFixed(1)}</p>
               <p className={`text-lg font-semibold mt-2 ${cat.color}`}>{cat.label}</p>
@@ -175,6 +182,9 @@ export default function BMICalculator() {
           <p className="text-xs text-slate-400">
             BMI is a screening tool, not a diagnostic. Consult a healthcare provider for a full assessment.
           </p>
+          <p className="text-xs text-slate-500">
+            Reference: <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html">CDC adult BMI categories</a>.
+          </p>
         </div>
 
         {/* How BMI is calculated */}
@@ -195,6 +205,7 @@ export default function BMICalculator() {
           <p className="text-slate-500 text-sm mt-3">
             <strong>Metric shortcut:</strong> Convert height to metres first (e.g. 175 cm = 1.75 m), then: 70 ÷ (1.75 × 1.75) = 70 ÷ 3.0625 = BMI 22.9 (Normal).
           </p>
+          <p className="mt-3 text-xs text-slate-500">For general BMI guidance and limitations, see the <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/">CDC&apos;s BMI overview</a>.</p>
         </div>
 
         {/* Learn More */}
@@ -208,6 +219,13 @@ export default function BMICalculator() {
             <p className="text-sm text-slate-400 mt-1">
               How BMI is calculated, what the four categories mean, its well-known limitations, and better measures to track overall health.
             </p>
+          </Link>
+          <Link
+            href="/blog/how-to-calculate-bmi-accurately"
+            className="mt-3 block bg-white border border-slate-100 rounded-lg p-4 hover:border-[#00B4A6] transition-colors"
+          >
+            <p className="font-medium text-slate-700">How to Calculate BMI Accurately</p>
+            <p className="mt-1 text-sm text-slate-400">Review both BMI formulas and measurement tips before interpreting a result.</p>
           </Link>
         </div>
       </div>

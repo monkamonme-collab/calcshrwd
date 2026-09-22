@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
   title: "How to Calculate a Tip: Formula, Examples & Bill Splitting",
@@ -41,6 +42,7 @@ export default function HowToCalculateATipPage() {
 
   return (
     <main className="bg-white">
+      <ArticleJsonLd headline="How to Calculate a Tip: Formula, Examples & Bill Splitting" description="Learn how to calculate a tip with a simple formula, quick examples, and an easy way to split the total bill." url="https://www.calcshrwd.com/blog/how-to-calculate-a-tip" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -126,6 +128,8 @@ export default function HowToCalculateATipPage() {
             <Link href="/tools/tip-calculator">Tip Calculator</Link> shows the tip, total, and per-person amount
             together so you can check the numbers before paying.
           </p>
+
+          <p className="text-sm text-slate-500">For general U.S. etiquette context, see <a href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. Customs and included service charges can vary.</p>
 
           <h2>Frequently asked questions</h2>
           {faqs.map((faq) => (

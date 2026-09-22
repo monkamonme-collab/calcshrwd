@@ -33,6 +33,14 @@ const articles = [
     tool: { label: "BMI Calculator", href: "/tools/bmi-calculator" },
   },
   {
+    slug: "how-to-calculate-bmi-accurately",
+    title: "How to Calculate BMI Accurately",
+    description:
+      "Learn the metric and imperial BMI formulas, how to enter measurements accurately, and how to interpret BMI categories with context.",
+    readTime: "8 min read",
+    tool: { label: "BMI Calculator", href: "/tools/bmi-calculator" },
+  },
+  {
     slug: "how-to-calculate-gpa",
     title: "How to Calculate GPA: A Complete Guide",
     description:

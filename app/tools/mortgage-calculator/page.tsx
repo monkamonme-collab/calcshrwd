@@ -77,12 +77,12 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
         <p className="text-slate-500 mb-8">Calculate your monthly mortgage payment and see the full amortization schedule.</p>
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Home Price ($)</label>
-            <input type="number" value={home} onChange={(e) => setHome(e.target.value)} placeholder="e.g. 400000" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
+            <label htmlFor="mortgage-home-price" className="block text-sm font-medium text-slate-700 mb-2">Home Price ($)</label>
+            <input id="mortgage-home-price" type="number" value={home} onChange={(e) => setHome(e.target.value)} placeholder="e.g. 400000" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Down Payment ($)</label>
-            <input type="number" value={down} onChange={(e) => setDown(e.target.value)} placeholder="e.g. 80000" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
+            <label htmlFor="mortgage-down-payment" className="block text-sm font-medium text-slate-700 mb-2">Down Payment ($)</label>
+            <input id="mortgage-down-payment" type="number" value={down} onChange={(e) => setDown(e.target.value)} placeholder="e.g. 80000" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
             {home && down && parseFloat(home) > 0 && (
               <p className="text-xs text-slate-400 mt-1">
                 {((parseFloat(down) / parseFloat(home)) * 100).toFixed(1)}% down
@@ -91,11 +91,11 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
             )}
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Annual Interest Rate (%)</label>
-            <input type="number" value={rate} onChange={(e) => setRate(e.target.value)} placeholder="e.g. 6.75" step="0.01" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
+            <label htmlFor="mortgage-rate" className="block text-sm font-medium text-slate-700 mb-2">Annual Interest Rate (%)</label>
+            <input id="mortgage-rate" type="number" value={rate} onChange={(e) => setRate(e.target.value)} placeholder="e.g. 6.75" step="0.01" className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Loan Term (years)</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Loan Term (years)</p>
             <div className="flex gap-2 flex-wrap">
               {presets.map((p) => (
                 <button key={p} onClick={() => setYears(p)} className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${years === p ? "bg-[#1E3A5F] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"}`}>
@@ -106,7 +106,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
           {result ? (
             <>
-              <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
+              <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center" aria-live="polite" aria-atomic="true">
                 <p className="text-slate-300 text-sm mb-1">Monthly Payment</p>
                 <p className="text-5xl font-bold text-[#00B4A6]">{fmtD(result.payment)}</p>
                 <p className="text-slate-400 text-xs mt-1">Principal & Interest only</p>

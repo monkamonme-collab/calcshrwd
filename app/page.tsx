@@ -12,11 +12,6 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "CalcShrwd",
   "url": "https://www.calcshrwd.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": { "@type": "EntryPoint", "urlTemplate": "https://www.calcshrwd.com/tools/{search_term_string}" },
-    "query-input": "required name=search_term_string"
-  }
 };
 
 const tools = [

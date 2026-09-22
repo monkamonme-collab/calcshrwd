@@ -83,16 +83,16 @@ __html: JSON.stringify({
 <p className="text-slate-500 mb-8">Calculate your exact age in years, months, days, weeks, and total days.</p>
 <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-2">Date of Birth</label>
-<input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} max={toDate} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
+<label htmlFor="age-birth-date" className="block text-sm font-medium text-slate-700 mb-2">Date of Birth</label>
+<input id="age-birth-date" type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} max={toDate} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
 </div>
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-2">Calculate Age On</label>
-<input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
+<label htmlFor="age-target-date" className="block text-sm font-medium text-slate-700 mb-2">Calculate Age On</label>
+<input id="age-target-date" type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
 </div>
 {age ? (
 <>
-<div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
+<div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center" aria-live="polite" aria-atomic="true">
 <p className="text-slate-300 text-sm mb-2">Your Age</p>
 <p className="text-4xl font-bold">{age.years} <span className="text-xl font-normal">yrs</span> {age.months} <span className="text-xl font-normal">mos</span> {age.days} <span className="text-xl font-normal">days</span></p>
 </div>

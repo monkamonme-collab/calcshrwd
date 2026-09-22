@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
   title: "How to Calculate Your Grade",
@@ -13,6 +14,7 @@ export default function HowToCalculateGrade() {
   return (
     <main className="max-w-3xl mx-auto px-4 py-10">
       <article>
+        <ArticleJsonLd headline="How to Calculate Your Grade" description="Learn how to calculate a final grade using weighted averages, points-based systems, and category weights." url="https://www.calcshrwd.com/blog/how-to-calculate-grade" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my grade using a weighted system?","acceptedAnswer":{"@type":"Answer","text":"Multiply your average score in each category by its weight as a decimal, then add the results together. For example, if homework (20%) averages 90%, tests (50%) average 78%, and the final (30%) is 85%, your grade = (90 × 0.20) + (78 × 0.50) + (85 × 0.30) = 18 + 39 + 25.5 = 82.5%."}},{"@type":"Question","name":"What score do I need on my final exam to pass?","acceptedAnswer":{"@type":"Answer","text":"Use this formula: Required Score = (Target Grade − Current Grade × (1 − Final Weight)) ÷ Final Weight. For example, if your current grade is 80%, the final is worth 30%, and you want an 85%: Required = (85 − 80 × 0.70) ÷ 0.30 = (85 − 56) ÷ 0.30 = 96.7%."}},{"@type":"Question","name":"What is the difference between points-based and weighted category grading?","acceptedAnswer":{"@type":"Answer","text":"Points-based grading adds all points earned and divides by total possible points. Weighted category grading groups assignments into categories (homework, tests, final) and assigns each category a percentage of the final grade. Both are common in US schools."}},{"@type":"Question","name":"What percentage is an A grade?","acceptedAnswer":{"@type":"Answer","text":"On the standard US grading scale, an A is typically 90% to 100%. Some schools require 93% or higher for an A and 90% to 92% for an A-. Always check your course syllabus since cutoffs vary by instructor and school."}}]}` }}

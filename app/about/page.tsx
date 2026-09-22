@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | CalcShrwd",
+  title: "About",
   description:
     "CalcShrwd builds free, fast calculators and practical guides for everyday financial and academic decisions.",
 };

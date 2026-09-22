@@ -71,32 +71,36 @@ __html: JSON.stringify({
 
 <div className="space-y-5 bg-white border border-slate-100 rounded-xl p-6 shadow-sm mb-6">
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-1">Initial Principal ($)</label>
+<label htmlFor="compound-principal" className="block text-sm font-medium text-slate-700 mb-1">Initial Principal ($)</label>
 <input
+id="compound-principal"
 type="number" value={principal} onChange={(e) => setPrincipal(e.target.value)}
 className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#00B4A6]"
 placeholder="10000" min="0"
 />
 </div>
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-1">Annual Interest Rate (%)</label>
+<label htmlFor="compound-rate" className="block text-sm font-medium text-slate-700 mb-1">Annual Interest Rate (%)</label>
 <input
+id="compound-rate"
 type="number" value={rate} onChange={(e) => setRate(e.target.value)}
 className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#00B4A6]"
 placeholder="7" min="0" step="0.1"
 />
 </div>
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-1">Time Period (years)</label>
+<label htmlFor="compound-years" className="block text-sm font-medium text-slate-700 mb-1">Time Period (years)</label>
 <input
+id="compound-years"
 type="number" value={years} onChange={(e) => setYears(e.target.value)}
 className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#00B4A6]"
 placeholder="10" min="1" max="50"
 />
 </div>
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-1">Compound Frequency</label>
+<label htmlFor="compound-frequency" className="block text-sm font-medium text-slate-700 mb-1">Compound Frequency</label>
 <select
+id="compound-frequency"
 value={compound} onChange={(e) => setCompound(e.target.value)}
 className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#00B4A6]"
 >
@@ -106,8 +110,9 @@ className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-non
 </select>
 </div>
 <div>
-<label className="block text-sm font-medium text-slate-700 mb-1">Monthly Contribution ($) <span className="text-slate-400 font-normal">optional</span></label>
+<label htmlFor="compound-contribution" className="block text-sm font-medium text-slate-700 mb-1">Monthly Contribution ($) <span className="text-slate-400 font-normal">optional</span></label>
 <input
+id="compound-contribution"
 type="number" value={contribution} onChange={(e) => setContribution(e.target.value)}
 className="w-full border border-slate-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#00B4A6]"
 placeholder="0" min="0"
@@ -116,7 +121,7 @@ placeholder="0" min="0"
 </div>
 
 {result && (
-<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8" aria-live="polite" aria-atomic="true">
 <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
 <p className="text-xs text-slate-300 mb-1">Future Value</p>
 <p className="text-2xl font-bold">{fmt(result.total)}</p>

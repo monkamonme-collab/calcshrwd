@@ -70,8 +70,9 @@ export default function LoanCalculator() {
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Loan Amount ($)</label>
+            <label htmlFor="loan-principal" className="block text-sm font-medium text-slate-700 mb-1">Loan Amount ($)</label>
             <input
+              id="loan-principal"
               type="number"
               value={principal}
               onChange={(e) => setPrincipal(e.target.value)}
@@ -80,8 +81,9 @@ export default function LoanCalculator() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Annual Interest Rate (%)</label>
+            <label htmlFor="loan-rate" className="block text-sm font-medium text-slate-700 mb-1">Annual Interest Rate (%)</label>
             <input
+              id="loan-rate"
               type="number"
               value={rate}
               onChange={(e) => setRate(e.target.value)}
@@ -91,9 +93,11 @@ export default function LoanCalculator() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Loan Term</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Loan Term</p>
             <div className="grid grid-cols-2 gap-3">
               <input
+                id="loan-term-years"
+                aria-label="Loan term in years"
                 type="number"
                 value={termYears}
                 onChange={(e) => setTermYears(e.target.value)}
@@ -101,6 +105,8 @@ export default function LoanCalculator() {
                 className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]"
               />
               <input
+                id="loan-term-months"
+                aria-label="Additional loan term months"
                 type="number"
                 value={termMonths}
                 onChange={(e) => setTermMonths(e.target.value)}
@@ -129,7 +135,7 @@ export default function LoanCalculator() {
             </p>
           )}
           {results && (
-            <div className="space-y-3 mt-2">
+            <div className="space-y-3 mt-2" aria-live="polite" aria-atomic="true">
               <div className="bg-[#1E3A5F] text-white rounded-xl p-5 text-center">
                 <p className="text-slate-300 text-sm">Monthly Payment</p>
                 <p className="text-4xl font-bold text-[#00B4A6]">${fmt(results.monthlyPayment)}</p>

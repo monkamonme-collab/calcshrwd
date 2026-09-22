@@ -73,17 +73,20 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
 <div className="space-y-2">
 {rows.map((r, i) => (
 <div key={i} className="grid grid-cols-12 gap-2 items-center">
-<input value={r.course} onChange={(e) => update(i, "course", e.target.value)}
+<label htmlFor={`gpa-course-${i}`} className="sr-only">Course {i + 1}</label>
+<input id={`gpa-course-${i}`} value={r.course} onChange={(e) => update(i, "course", e.target.value)}
 placeholder={`Course ${i + 1}`}
 className="col-span-5 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<input type="number" value={r.credits} onChange={(e) => update(i, "credits", e.target.value)}
+<label htmlFor={`gpa-credits-${i}`} className="sr-only">Credits for course {i + 1}</label>
+<input id={`gpa-credits-${i}`} type="number" value={r.credits} onChange={(e) => update(i, "credits", e.target.value)}
 min="0" max="6" step="0.5"
 className="col-span-3 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]" />
-<select value={r.grade} onChange={(e) => update(i, "grade", e.target.value)}
+<label htmlFor={`gpa-grade-${i}`} className="sr-only">Grade for course {i + 1}</label>
+<select id={`gpa-grade-${i}`} value={r.grade} onChange={(e) => update(i, "grade", e.target.value)}
 className="col-span-3 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#00B4A6]">
 {Object.keys(GRADE_POINTS).map((g) => <option key={g} value={g}>{g}</option>)}
 </select>
-<button onClick={() => removeRow(i)}
+<button type="button" aria-label={`Remove course ${i + 1}`} onClick={() => removeRow(i)}
 className="col-span-1 text-slate-300 hover:text-red-400 text-lg font-bold transition-colors">x</button>
 </div>
 ))}
@@ -95,7 +98,7 @@ className="mt-4 text-sm text-[#00B4A6] hover:text-[#1E3A5F] font-medium transiti
 </button>
 
 {totalCredits > 0 && (
-<div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-5 grid grid-cols-2 gap-4 text-center">
+<div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-5 grid grid-cols-2 gap-4 text-center" aria-live="polite" aria-atomic="true">
 <div>
 <p className="text-slate-300 text-sm">GPA</p>
 <p className={`text-4xl font-bold ${gpaColor}`}>{gpa.toFixed(2)}</p>

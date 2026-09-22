@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: "How to Calculate BMI Accurately | calcshrwd",
@@ -47,6 +48,7 @@ export default function HowToCalculateBMIAccurately() {
 
   return (
     <>
+      <ArticleJsonLd headline="How to Calculate BMI Accurately" description="Learn how to calculate BMI accurately using metric and imperial formulas, understand BMI categories, limitations, and when BMI does not tell the whole story." url="https://www.calcshrwd.com/blog/how-to-calculate-bmi-accurately" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -63,27 +65,6 @@ export default function HowToCalculateBMIAccurately() {
                 item: "https://www.calcshrwd.com/blog/how-to-calculate-bmi-accurately",
               },
             ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: "How to Calculate BMI Accurately",
-            description:
-              "A complete guide to calculating BMI using metric and imperial formulas, understanding BMI categories, limitations, and complementary health measurements.",
-            url: "https://www.calcshrwd.com/blog/how-to-calculate-bmi-accurately",
-            author: { "@type": "Organization", name: "calcshrwd" },
-            publisher: {
-              "@type": "Organization",
-              name: "calcshrwd",
-              url: "https://www.calcshrwd.com",
-            },
-            datePublished: "2024-11-01",
-            dateModified: "2024-11-01",
           }),
         }}
       />
@@ -492,6 +473,8 @@ export default function HowToCalculateBMIAccurately() {
           ))}
         </div>
 
+        <p className="mb-10 text-sm text-slate-500">Sources: <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html">CDC adult BMI categories</a>, <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/child-teen-calculator/bmi-categories.html">CDC child and teen BMI categories</a>, and the <a className="underline hover:text-[#00B4A6]" href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight">WHO overview of BMI classifications</a>.</p>
+
         {/* Related Calculators */}
         <div className="mt-10 pt-8 border-t border-slate-200">
           <h2 className="text-lg font-semibold text-slate-700 mb-4">Related Calculators</h2>
@@ -519,7 +502,7 @@ export default function HowToCalculateBMIAccurately() {
             {[
               ["/blog/how-to-calculate-take-home-pay", "How to Calculate Take-Home Pay After Taxes"],
               ["/blog/what-is-bmi", "What Is BMI and Why Does It Matter?"],
-              ["/blog/how-to-calculate-compound-interest", "How to Calculate Compound Interest"],
+              ["/blog/understanding-loan-interest", "Understanding Loan Interest"],
             ].map(([href, title]) => (
               <Link
                 key={href}

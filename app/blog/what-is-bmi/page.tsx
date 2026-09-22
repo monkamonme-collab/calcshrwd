@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
   title: "What Is BMI? Body Mass Index Explained Simply",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function WhatIsBMIArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <ArticleJsonLd headline="What Is BMI? Body Mass Index Explained Simply" description="BMI explained clearly: what it stands for, how to calculate it, what a result means, and its limitations." url="https://www.calcshrwd.com/blog/what-is-bmi" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -335,6 +337,8 @@ export default function WhatIsBMIArticle() {
         definitive statement about your health.
       </p>
 
+      <p className="mb-8 text-sm text-slate-500">Sources: <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html">CDC adult BMI categories</a> and the <a className="underline hover:text-[#00B4A6]" href="https://www.cdc.gov/bmi/faq/index.html">CDC BMI FAQ</a>.</p>
+
       {/* Calculator CTA */}
       <div className="bg-[#E8F8F7] border border-[#00B4A6] rounded-lg p-5 mb-8">
         <h3 className="text-lg font-bold text-[#1E3A5F] mb-2">Calculate Your BMI Now</h3>
@@ -356,7 +360,7 @@ export default function WhatIsBMIArticle() {
         <div className="flex flex-wrap gap-3">
           <Link href="/tools/bmi-calculator" className="text-sm text-[#00B4A6] underline">BMI Calculator</Link>
           <Link href="/tools/calorie-calculator" className="text-sm text-[#00B4A6] underline">Calorie Calculator</Link>
-          <Link href="/tools/body-fat-calculator" className="text-sm text-[#00B4A6] underline">Body Fat Calculator</Link>
+          <Link href="/blog/how-to-calculate-bmi-accurately" className="text-sm text-[#00B4A6] underline">How to Calculate BMI Accurately</Link>
         </div>
       </div>
     </article>

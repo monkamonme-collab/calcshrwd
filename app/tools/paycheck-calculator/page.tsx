@@ -119,7 +119,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Pay Type</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Pay Type</p>
             <div className="flex gap-2">
               {(["annual", "hourly"] as const).map((t) => (
                 <button key={t} onClick={() => setPayType(t)}
@@ -131,25 +131,25 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="paycheck-salary" className="block text-sm font-medium text-slate-700 mb-1">
               {payType === "annual" ? "Annual Salary ($)" : "Hourly Rate ($)"}
             </label>
-            <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)}
+            <input id="paycheck-salary" type="number" value={salary} onChange={(e) => setSalary(e.target.value)}
               placeholder={payType === "annual" ? "e.g. 65000" : "e.g. 22"}
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
 
           {payType === "hourly" && (
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Hours Per Week</label>
-              <input type="number" value={hoursPerWeek} onChange={(e) => setHoursPerWeek(e.target.value)}
+              <label htmlFor="paycheck-hours" className="block text-sm font-medium text-slate-700 mb-1">Hours Per Week</label>
+              <input id="paycheck-hours" type="number" value={hoursPerWeek} onChange={(e) => setHoursPerWeek(e.target.value)}
                 className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Pay Frequency</label>
-            <select value={payFreq} onChange={(e) => setPayFreq(e.target.value as typeof payFreq)}
+            <label htmlFor="paycheck-frequency" className="block text-sm font-medium text-slate-700 mb-2">Pay Frequency</label>
+            <select id="paycheck-frequency" value={payFreq} onChange={(e) => setPayFreq(e.target.value as typeof payFreq)}
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]">
               <option value="weekly">Weekly (52x/year)</option>
               <option value="biweekly">Bi-weekly (26x/year)</option>
@@ -159,7 +159,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Filing Status</label>
+            <p className="block text-sm font-medium text-slate-700 mb-2">Filing Status</p>
             <div className="flex gap-2">
               {(["single", "married"] as const).map((s) => (
                 <button key={s} onClick={() => setFilingStatus(s)}
@@ -171,8 +171,8 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">State</label>
-            <select value={state} onChange={(e) => setState(e.target.value)}
+            <label htmlFor="paycheck-state" className="block text-sm font-medium text-slate-700 mb-1">State</label>
+            <select id="paycheck-state" value={state} onChange={(e) => setState(e.target.value)}
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]">
               {Object.keys(STATE_TAXES).sort().map((s) => (
                 <option key={s} value={s}>{s}</option>
@@ -181,10 +181,10 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="paycheck-retirement" className="block text-sm font-medium text-slate-700 mb-1">
               401(k) Contribution (% of gross)
             </label>
-            <input type="number" value={retirement401k} onChange={(e) => setRetirement401k(e.target.value)}
+            <input id="paycheck-retirement" type="number" value={retirement401k} onChange={(e) => setRetirement401k(e.target.value)}
               placeholder="e.g. 6" min={0} max={100}
               className="w-full border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#00B4A6]" />
           </div>
@@ -192,7 +192,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
 
         {annualGross > 0 && (
           <div className="mt-6 space-y-4">
-            <div className="bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4">
+            <div className="bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4" aria-live="polite" aria-atomic="true">
               <div>
                 <p className="text-slate-300 text-sm">Gross Per Paycheck</p>
                 <p className="text-2xl font-bold">${grossPerPeriod.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
@@ -231,6 +231,7 @@ __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbLi
         <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
           <p className="font-semibold">Estimate and methodology</p>
           <p className="mt-1">Federal calculations use {TAX_YEAR} IRS brackets and the standard deduction. State tax uses a single illustrative rate and is not a state-specific withholding calculation. This tool is for planning only, not tax advice.</p>
+          <p className="mt-2">References: <a className="underline" href="https://www.irs.gov/publications/p15">IRS Publication 15</a>, <a className="underline" href="https://www.irs.gov/taxtopics/tc751">IRS Topic 751 (Social Security and Medicare withholding)</a>, and the <a className="underline" href="https://www.ssa.gov/oact/COLA/cbb.html">Social Security contribution and benefit base</a>.</p>
         </div>
 
         <div className="mt-10 border-t border-slate-100 pt-8">

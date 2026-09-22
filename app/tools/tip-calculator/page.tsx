@@ -73,10 +73,11 @@ export default function TipCalculator() {
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-6">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="tip-bill-amount" className="block text-sm font-medium text-slate-700 mb-1">
               Bill Amount ($)
             </label>
             <input
+              id="tip-bill-amount"
               type="number"
               value={bill}
               onChange={(e) => setBill(e.target.value)}
@@ -86,7 +87,7 @@ export default function TipCalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">
+            <label htmlFor="tip-percentage" className="block text-sm font-medium text-slate-700 mb-2">
               Tip Percentage: <span className="text-[#00B4A6] font-bold">{tipPct}%</span>
             </label>
             <div className="flex gap-2 mb-3 flex-wrap">
@@ -105,6 +106,7 @@ export default function TipCalculator() {
               ))}
             </div>
             <input
+              id="tip-percentage"
               type="range"
               min={0}
               max={30}
@@ -115,10 +117,11 @@ export default function TipCalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">
+            <label htmlFor="tip-people" className="block text-sm font-medium text-slate-700 mb-1">
               Split Between (people)
             </label>
             <input
+              id="tip-people"
               type="number"
               value={people}
               onChange={(e) => setPeople(Math.max(1, parseInt(e.target.value) || 1))}
@@ -129,7 +132,7 @@ export default function TipCalculator() {
         </div>
 
         {billNum > 0 && (
-          <div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4">
+          <div className="mt-6 bg-[#1E3A5F] text-white rounded-xl p-6 grid grid-cols-2 gap-4" aria-live="polite" aria-atomic="true">
             <div>
               <p className="text-slate-300 text-sm">Tip Amount</p>
               <p className="text-2xl font-bold text-[#00B4A6]">${tipAmount.toFixed(2)}</p>
@@ -206,6 +209,7 @@ export default function TipCalculator() {
               </tbody>
             </table>
           </div>
+          <p className="mt-3 text-xs text-slate-500">Reference: <a className="underline hover:text-[#00B4A6]" href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. Customs and service charges vary by location and situation.</p>
         </div>
 
         <div className="mt-8 border-t border-slate-100 pt-8">

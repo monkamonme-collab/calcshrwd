@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "how-to-calculate-a-tip",
     "understanding-loan-interest",
     "what-is-bmi",
+    "how-to-calculate-bmi-accurately",
     "how-to-calculate-grade",
     "how-to-calculate-percentage",
     "word-count-guide",

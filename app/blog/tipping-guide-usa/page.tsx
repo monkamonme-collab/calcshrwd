@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
   title: "Tipping Guide USA: Common Ranges for Everyday Services",
@@ -51,6 +52,7 @@ export default function TippingGuideUSAArticle() {
 
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <ArticleJsonLd headline="Tipping Guide USA: Common Ranges for Everyday Services" description="A practical US tipping reference for restaurants, delivery, hotels, rides, salons, and more." url="https://www.calcshrwd.com/blog/tipping-guide-usa" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <nav aria-label="Breadcrumb" className="text-sm text-slate-400 mb-6">
         <Link href="/" className="hover:text-[#00B4A6]">Home</Link>
@@ -92,6 +94,7 @@ export default function TippingGuideUSAArticle() {
           </tbody>
         </table>
       </div>
+      <p className="-mt-4 mb-8 text-sm text-slate-500">Reference: <a className="underline hover:text-[#00B4A6]" href="https://emilypost.com/advice/general-tipping-guide">Emily Post&apos;s general tipping guide</a>. Tipping practices and service charges vary by location and situation.</p>
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">Before you pay</h2>
       <ul className="list-disc pl-6 text-slate-600 mb-6 space-y-2">

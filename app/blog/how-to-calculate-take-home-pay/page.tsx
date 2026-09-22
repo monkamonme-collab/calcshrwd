@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata: Metadata = {
   title: "How to Calculate Take-Home Pay | Step-by-Step Paycheck Guide",
@@ -47,6 +48,7 @@ const faqItems = [
 export default function HowToCalculateTakeHomePayArticle() {
   return (
     <article className="max-w-2xl mx-auto px-6 py-10">
+      <ArticleJsonLd headline="How to Calculate Take-Home Pay" description="Learn how to calculate take-home pay after federal tax, FICA, state taxes, and deductions." url="https://www.calcshrwd.com/blog/how-to-calculate-take-home-pay" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -58,20 +60,6 @@ export default function HowToCalculateTakeHomePayArticle() {
               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.calcshrwd.com/blog" },
               { "@type": "ListItem", "position": 3, "name": "How to Calculate Take-Home Pay", "item": "https://www.calcshrwd.com/blog/how-to-calculate-take-home-pay" },
             ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "How to Calculate Take-Home Pay",
-            "description": "A step-by-step guide to calculating net pay after federal tax, FICA, state taxes, and deductions.",
-            "url": "https://www.calcshrwd.com/blog/how-to-calculate-take-home-pay",
-            "dateModified": "2026-09-05",
-            "publisher": { "@type": "Organization", "name": "CalcShrwd", "url": "https://www.calcshrwd.com" },
           }),
         }}
       />
@@ -303,6 +291,8 @@ export default function HowToCalculateTakeHomePayArticle() {
           Calculate My Take-Home Pay
         </Link>
       </div>
+
+      <p className="mb-10 text-sm text-slate-500">Sources: <a className="underline hover:text-[#00B4A6]" href="https://www.irs.gov/taxtopics/tc751">IRS Topic 751</a>, <a className="underline hover:text-[#00B4A6]" href="https://www.irs.gov/payments/tax-withholding">IRS guidance on tax withholding</a>, and the <a className="underline hover:text-[#00B4A6]" href="https://www.ssa.gov/oact/COLA/cbb.html">Social Security contribution and benefit base</a>.</p>
 
       <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6">Frequently Asked Questions</h2>
       <div className="space-y-3 mb-10">

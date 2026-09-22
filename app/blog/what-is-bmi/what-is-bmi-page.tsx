@@ -356,7 +356,7 @@ export default function WhatIsBMIArticle() {
         <div className="flex flex-wrap gap-3">
           <Link href="/tools/bmi-calculator" className="text-sm text-[#00B4A6] underline">BMI Calculator</Link>
           <Link href="/tools/calorie-calculator" className="text-sm text-[#00B4A6] underline">Calorie Calculator</Link>
-          <Link href="/tools/body-fat-calculator" className="text-sm text-[#00B4A6] underline">Body Fat Calculator</Link>
+          <Link href="/blog/how-to-calculate-bmi-accurately" className="text-sm text-[#00B4A6] underline">How to Calculate BMI Accurately</Link>
         </div>
       </div>
     </article>
