@@ -8,7 +8,11 @@ export default function AgeCalculator() {
 const [birthDate, setBirthDate] = useState("");
 const [toDate, setToDate] = useState("");
 useEffect(() => {
-  setToDate(formatLocalDate(new Date()));
+  // Defer browser-local date initialization until after hydration.
+  const frame = window.requestAnimationFrame(() => {
+    setToDate(formatLocalDate(new Date()));
+  });
+  return () => window.cancelAnimationFrame(frame);
 }, []);
 
 const age = calculateCalendarAge(birthDate, toDate);
