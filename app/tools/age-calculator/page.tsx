@@ -1,53 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { calculateCalendarAge, daysUntilNextBirthday, formatLocalDate } from "@/lib/calendarAge";
 
 export default function AgeCalculator() {
 const [birthDate, setBirthDate] = useState("");
-const [toDate, setToDate] = useState(() => new Date().toISOString().split("T")[0]);
+const [toDate, setToDate] = useState("");
+useEffect(() => {
+  // Defer browser-local date initialization until after hydration.
+  const frame = window.requestAnimationFrame(() => {
+    setToDate(formatLocalDate(new Date()));
+  });
+  return () => window.cancelAnimationFrame(frame);
+}, []);
 
-const age = (() => {
-if (!birthDate || !toDate) return null;
-const birth = new Date(birthDate);
-const to = new Date(toDate);
-if (isNaN(birth.getTime()) || isNaN(to.getTime()) || birth > to) return null;
-
-let years = to.getFullYear() - birth.getFullYear();
-let months = to.getMonth() - birth.getMonth();
-let days = to.getDate() - birth.getDate();
-
-if (days < 0) {
-months--;
-const prevMonth = new Date(to.getFullYear(), to.getMonth(), 0);
-days += prevMonth.getDate();
-}
-if (months < 0) {
-years--;
-months += 12;
-}
-
-const totalDays = Math.floor((to.getTime() - birth.getTime()) / (1000 * 60 * 60 * 24));
-const totalWeeks = Math.floor(totalDays / 7);
-const totalMonths = years * 12 + months;
-
-return { years, months, days, totalDays, totalWeeks, totalMonths };
-})();
-
-const nextBirthday = (() => {
-if (!birthDate) return null;
-const birth = new Date(birthDate);
-const today = new Date();
-let next = new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
-if (next <= today) next = new Date(today.getFullYear() + 1, birth.getMonth(), birth.getDate());
-const diff = Math.ceil((next.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-return diff;
-})();
+const age = calculateCalendarAge(birthDate, toDate);
+const nextBirthday = daysUntilNextBirthday(birthDate, toDate);
 
 const faqItems = [
-{ q: "How is age calculated?", a: "Age is calculated by finding the difference between your birth date and today (or a chosen date). The result accounts for varying month lengths and leap years to give exact years, months, and days." },
+{ q: "How is age calculated?", a: "Age is calculated by finding the difference between your birth date and today (or a chosen date). The result uses calendar anniversaries, with month-end dates clamped to the last valid day of a shorter month. Total days are counted separately." },
 { q: "How do I calculate my exact age in days?", a: "To find your exact age in days, subtract your birth date from today's date. For example, if you were born on January 1, 2000, and today is June 26, 2026, you have lived 9,673 days. This calculator does that math for you instantly." },
-{ q: "Does a leap year affect my age calculation?", a: "Leap years add one extra day (February 29) every 4 years. If you were born on February 29, most people celebrate their birthday on February 28 or March 1 in non-leap years. The total-days calculation always accounts for all leap years automatically." },
+{ q: "Does a leap year affect my age calculation?", a: "Leap years normally occur every four years, with century exceptions. This tool uses February 28 as the calendar anniversary for a February 29 birth in a non-leap year, and counts actual calendar days separately." },
 { q: "What is the difference between chronological age and biological age?", a: "Chronological age is simply the number of years since your birth. Biological age refers to how old your body appears based on health markers like fitness level, diet, and genetics — it can be younger or older than your chronological age." },
 { q: "How many days old am I if I was born in 1990?", a: "Someone born on January 1, 1990 would be approximately 13,330 days old as of mid-2026. Use this calculator with your exact birth date to get a precise number." },
 { q: "Can I calculate the age difference between two people?", a: "Yes — enter one person's birth date and set the 'Calculate age on' date to the other person's birth date. The result will show the exact age of the first person on that date, which equals the age difference." }
@@ -80,7 +54,7 @@ __html: JSON.stringify({
 <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A5F]/80 to-[#1E3A5F]/20" />
 </div>
 <h1 className="text-3xl font-bold text-[#1E3A5F] mb-2">Age Calculator</h1>
-<p className="text-slate-500 mb-8">Calculate your exact age in years, months, days, weeks, and total days.</p>
+<p className="text-slate-500 mb-8">Calculate your age in years, months, days, weeks, and total days using calendar dates.</p>
 <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-5">
 <div>
 <label htmlFor="age-birth-date" className="block text-sm font-medium text-slate-700 mb-2">Date of Birth</label>
@@ -106,7 +80,7 @@ __html: JSON.stringify({
 </div>
 {nextBirthday !== null && (
 <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-3 text-sm text-amber-800">
-🎂 Next birthday in <strong>{nextBirthday} day{nextBirthday !== 1 ? "s" : ""}</strong>
+🎂 Next birthday relative to selected date in <strong>{nextBirthday} day{nextBirthday !== 1 ? "s" : ""}</strong>
 </div>
 )}
 </>

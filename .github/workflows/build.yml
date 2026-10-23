@@ -19,4 +19,6 @@ jobs:
         with:
           node-version: 22
       - run: npm install --no-package-lock
+      - run: npm run test
+      - run: npx eslint app/tools/age-calculator/page.tsx lib/calendarAge.ts
       - run: npm run build
