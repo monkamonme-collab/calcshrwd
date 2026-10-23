@@ -67,15 +67,17 @@ export function calculateCalendarAge(birthIso: string, targetIso: string): Calen
   const end = utcTimestamp(target);
   if (start > end) return null;
 
-  let years = target.year - birth.year;
-  if (utcTimestamp(addYearsClamped(birth, years)) > end) years -= 1;
-  const yearAnchor = addYearsClamped(birth, years);
-  let months = (target.year - yearAnchor.year) * 12 + target.month - yearAnchor.month;
-  if (utcTimestamp(addMonthsClamped(yearAnchor, months)) > end) months -= 1;
-  const monthAnchor = addMonthsClamped(yearAnchor, months);
+  // Always anchor completed months to the original birth day. Clamping a
+  // previous year's anniversary first can incorrectly produce 12 months
+  // in the year before a leap-day birthday (e.g. Feb 29 2024 → Feb 28 2028).
+  let totalMonths = (target.year - birth.year) * 12 + target.month - birth.month;
+  if (utcTimestamp(addMonthsClamped(birth, totalMonths)) > end) totalMonths -= 1;
+  const monthAnchor = addMonthsClamped(birth, totalMonths);
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
   const days = Math.round((end - utcTimestamp(monthAnchor)) / MS_PER_DAY);
   const totalDays = Math.round((end - start) / MS_PER_DAY);
-  return { years, months, days, totalDays, totalWeeks: Math.floor(totalDays / 7), totalMonths: years * 12 + months };
+  return { years, months, days, totalDays, totalWeeks: Math.floor(totalDays / 7), totalMonths };
 }
 
 /** Days until the next calendar birthday, relative to the selected comparison date. */
