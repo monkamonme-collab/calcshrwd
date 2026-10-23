@@ -62,3 +62,12 @@ test("local date formatter uses the local calendar, not UTC", () => {
   const date = new Date(2026, 9, 24, 0, 15, 0);
   assert.equal(formatLocalDate(date), "2026-10-24");
 });
+
+test("leap-day birth before the next leap-day anniversary never has 12 months", () => {
+  const result = calculateCalendarAge("2024-02-29", "2028-02-28");
+  assert.deepEqual([result?.years, result?.months, result?.days], [3, 11, 30]);
+  assert.deepEqual([calculateCalendarAge("2024-02-29", "2025-02-28")?.years,
+    calculateCalendarAge("2024-02-29", "2025-02-28")?.months], [1, 0]);
+  assert.deepEqual([calculateCalendarAge("2024-02-29", "2028-02-29")?.years,
+    calculateCalendarAge("2024-02-29", "2028-02-29")?.months], [4, 0]);
+});
