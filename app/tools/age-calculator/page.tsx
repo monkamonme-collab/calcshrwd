@@ -9,27 +9,25 @@ const [toDate, setToDate] = useState(() => new Date().toISOString().split("T")[0
 
 const age = (() => {
 if (!birthDate || !toDate) return null;
-const birth = new Date(birthDate);
-const to = new Date(toDate);
+const birth = new Date(birthDate + "T00:00:00Z");
+const to = new Date(toDate + "T00:00:00Z");
 if (isNaN(birth.getTime()) || isNaN(to.getTime()) || birth > to) return null;
 
-let years = to.getFullYear() - birth.getFullYear();
-let months = to.getMonth() - birth.getMonth();
-let days = to.getDate() - birth.getDate();
+// Count full calendar months from the original day. If that day does not
+// exist in a month, use that month's last day as the anniversary.
+const anniversary = (monthOffset: number) => {
+  const first = new Date(Date.UTC(birth.getUTCFullYear(), birth.getUTCMonth() + monthOffset, 1));
+  const lastDay = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), Math.min(birth.getUTCDate(), lastDay)));
+};
 
-if (days < 0) {
-months--;
-const prevMonth = new Date(to.getFullYear(), to.getMonth(), 0);
-days += prevMonth.getDate();
-}
-if (months < 0) {
-years--;
-months += 12;
-}
-
-const totalDays = Math.floor((to.getTime() - birth.getTime()) / (1000 * 60 * 60 * 24));
+let totalMonths = (to.getUTCFullYear() - birth.getUTCFullYear()) * 12 + to.getUTCMonth() - birth.getUTCMonth();
+if (anniversary(totalMonths) > to) totalMonths--;
+const years = Math.floor(totalMonths / 12);
+const months = totalMonths % 12;
+const days = Math.round((to.getTime() - anniversary(totalMonths).getTime()) / 86400000);
+const totalDays = Math.round((to.getTime() - birth.getTime()) / 86400000);
 const totalWeeks = Math.floor(totalDays / 7);
-const totalMonths = years * 12 + months;
 
 return { years, months, days, totalDays, totalWeeks, totalMonths };
 })();
@@ -45,7 +43,7 @@ return diff;
 })();
 
 const faqItems = [
-{ q: "How is age calculated?", a: "Age is calculated by finding the difference between your birth date and today (or a chosen date). The result accounts for varying month lengths and leap years to give exact years, months, and days." },
+{ q: "How is age calculated?", a: "Age is calculated by finding the difference between your birth date and today (or a chosen date). It counts full calendar months from the birth date; if that day does not exist in a month, the month's last day is used. Remaining days are counted after the last monthly anniversary." },
 { q: "How do I calculate my exact age in days?", a: "To find your exact age in days, subtract your birth date from today's date. For example, if you were born on January 1, 2000, and today is June 26, 2026, you have lived 9,673 days. This calculator does that math for you instantly." },
 { q: "Does a leap year affect my age calculation?", a: "Leap years add one extra day (February 29) every 4 years. If you were born on February 29, most people celebrate their birthday on February 28 or March 1 in non-leap years. The total-days calculation always accounts for all leap years automatically." },
 { q: "What is the difference between chronological age and biological age?", a: "Chronological age is simply the number of years since your birth. Biological age refers to how old your body appears based on health markers like fitness level, diet, and genetics — it can be younger or older than your chronological age." },
@@ -111,7 +109,7 @@ __html: JSON.stringify({
 )}
 </>
 ) : (
-<p className="text-center text-sm text-slate-400">Enter your date of birth above to calculate your age.</p>
+<p className="text-center text-sm text-slate-500" aria-live="polite">{birthDate && toDate && birthDate > toDate ? "The calculation date must be on or after the date of birth." : "Enter your date of birth above to calculate your age."}</p>
 )}
 </div>
 </div>
@@ -145,3 +143,4 @@ __html: JSON.stringify({
 </>
 );
 }
+
